@@ -1,0 +1,8 @@
+#
+#   Protect this directory
+#   and all its sub folders.
+#
+Deny from all
+#
+#   End of file
+#

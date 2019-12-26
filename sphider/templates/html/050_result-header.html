@@ -1,0 +1,108 @@
+<?php
+// display result header
+echo "<!-- Result-header -->\n";
+
+// show databases that delivered results
+if ($debug_user == '1')
+{
+   echo "<small>Results from database $slv1 $slv2 $slv3 $slv4 $slv5</small>\n";
+
+   if ($prefix > '0')
+   {
+      echo "<small>table prefix: $prefix</small>\n";
+   }
+
+   if (!$one_word || !$mustbe_and)
+   {
+      echo "<br>\n";
+   }
+
+   if ($one_word)
+   {
+      echo "<small><span class='red'>Info:</span> Automatically reset to single word query for this search mode.</small>\n";
+   }
+
+   if ($mustbe_and)
+   {
+      echo "<small><span class='red'>Info:</span> Automatically reset to AND for this search mode.</small>\n";
+   }
+
+   if ($nostalgic_phrase =='1' )
+   {
+      echo "<small><span class='red'>Info:</span>Sphider-plus does not require quotation marks for phrase search.<br>\n";
+      echo "Just activate the checkbox '" . $sph_messages['phraseSearch'] . "' in the Search Form and enter the phrase you want to search for.</small>\n";
+   }
+}
+
+// show words that were ignored for this search
+if ($text_results['ignore_words'] && $type != 'phrase')
+{
+   $ignore_msg = str_replace ('%ignored_words', "<span class='warnadmin'>$ignored</span>\r\n", $sph_messages["ignoredWords"]);
+
+   echo "<div id='ignored' class='tblhead cntr'>$ignore_msg</div>\n";
+}
+
+echo "<br>\n";
+echo "<div id='result_header' class='mainlist'>\n";
+
+if ($total_results != 0 && $from <= $to && $template != "Pure")
+{
+   echo "<p class='cntr'><a class='navdown' href='javascript:JumpBottom()' title='Jump to bottom of this page'>" . $sph_messages['down'] . "</a></p>\n";
+}
+
+// if no result was found
+if ($text_results['total_results'] == 0)
+{
+   echo "<div class='warnadmin cntr'>";
+   echo "    $no_res\r\n";
+   echo "<br>\n";
+   echo "    $catsearch <span class='blue'>$catname</span>\n";
+   echo "</div>\n";
+}
+
+// if Sphider-plus found a 'did-you-mean' suggestion
+if ($text_results['did_you_mean'] && $text_results['total_results'] == '')
+{
+   $did_you_mean = "  "
+      . $sph_messages['DidYouMean']
+      . ": <a href='$search_string?query_t="
+      . (addmarks($text_results['did_you_mean']))
+      . "&amp;search=1"
+      . "&amp;media_only=$media_only"
+      . "&amp;smt_button=$smt_button"
+      . "&amp;type=$type_rem"
+      . "&amp;results=$result_rem"
+      . "&amp;mark=$mark_rem"
+      . "&amp;category=$cat_rem"
+      . "&amp;catid=$catid_rem"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix'>"
+      . $text_results['did_you_mean_b']
+      . "</a>?";
+
+   echo "<div id='didumean'>    $did_you_mean\r\n";
+   echo "</div>\n";
+}
+
+if ($text_results['total_results'] != '')
+{
+   echo "<span>$result</span>\n";
+   echo "<br>\n";
+
+   if ($show_sort == '1' && $wildcount != '1')
+   {
+      echo "        <span>$res_order $this_list</span>\n";
+   }
+
+   echo "</div>\n";
+
+   echo "<!-- Start result listing -->\n";
+   echo "<div id='results'>\n";
+}
+else
+{
+   echo "</div>\n";
+   echo "<p class='y5'></p>\n";
+}
+// end result header
+?>

@@ -1,0 +1,99 @@
+<?php
+// display  media-only result listing
+
+echo "<tr class='$class'>\n";
+echo "<td class='cntr x4'>\n";
+echo "<a href='$media_click' target='rel' title='" . $sph_messages['openMedia'] . "'>\n";
+
+if ($this_media[6] =='image')
+{
+   echo "<img src='$thumb_link' border='1' alt='Thumbnail'>\n";
+}
+
+if ($this_media[6] =='audio')
+{
+   echo "<img src='$image_dir/notes60.gif' border='0' alt='Media results'>\n";
+}
+
+if ($this_media[6] =='video')
+{
+    if (strpos($media_click, "watch?v=")) {
+        //  show thumbnail of Youtube video
+        echo "<img src='$this_thumb' border='0' alt='Media results'>\n";
+    } else {
+        echo "<img src='$image_dir/film60.gif' border='0' alt='Media results'>\n";
+    }
+}
+	$media_title = substr($media_title, 0, strpos($media_title, "-_-")-1);	//	remove useless parts
+	
+echo "</a>\n";
+echo "</td>\n";
+echo "<td class='lft sml'>\n";
+if (strpos($media_click, "watch?v=") && $this_media[6] =='video') {
+echo "<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['resNum'] . ":&nbsp;&nbsp;$i_1&nbsp;&nbsp;&nbsp;&nbsp;Youtube video</strong></p>\n";
+}
+if (strpos($media_click, "ytimg.com") && $this_media[6] =='image') {
+echo "<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['resNum'] . ":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$i_1&nbsp;&nbsp;&nbsp;&nbsp;Youtube image</strong></p>\n";
+}
+if (!strpos($media_click, "watch?v=") && !strpos($media_click, "ytimg.com")) {
+echo "<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['resNum'] . ":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$i_1</strong></p>\n";
+}
+echo "<p>&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['title'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$media_title\n";
+
+if ($index_id3 == '1')
+{
+   echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n";
+   echo "<a href='$include_dir/show_id3.php?media_id=$this_media[0]"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix' target='_blank'>"
+      . ($sph_messages['more']) . " " . ($sph_messages['details'])
+      . "</a>\n";
+}
+
+echo "</p>\n";
+
+if ($this_media[6] =='image')
+{
+   echo "<!-- <p>&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['size'] . ":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+      . $this_media[7] . "&nbsp;x&nbsp;"
+      . $this_media[8] . "&nbsp;pixel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($img_name) -->\n";
+
+   echo "<p>&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['size'] . ":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+      . $this_media[7] . "&nbsp;x&nbsp;"
+      . $this_media[8] . "&nbsp;pixel</p>\n";
+}
+
+echo "<p>&nbsp;&nbsp;&nbsp;&nbsp;"
+   . $sph_messages['foundAt']
+   . ":&nbsp;<a href='$link_click' target='_blank' title='"
+   . $sph_messages['New_window'] . "'>"
+   . $this_media[2]
+   . "</a></p>\n";
+
+if (strpos($this_media[2], "youtube")) {
+//  as it is impossible to pass a youtube URL to another script, because the web browser takes over immediately
+$this_media[2] = str_replace("https://www.youtube.com/", "", $this_media[2]);
+}
+
+//  show all media of this URL
+echo "<p class='cntr'>";
+echo "<a href='$search_string?search=2"
+   . "&amp;link=" . $this_media[2]
+   . "&amp;query=$query"
+   . "&amp;media_only=1"
+   . "&amp;title=$page_title"
+   . "&amp;up_advanced=$up_advanced"
+   . "&amp;category=$category"
+   . "&amp;catid=$catid"
+   . "&amp;mark=$mark"
+   . "&amp;db=$db"
+   . "&amp;prefix=$prefix' title='"
+   . $sph_messages['allMedia']
+   . "'>"
+   . $sph_messages['allMedia']
+   . "</a></p>\n";
+
+echo "</td>\n";
+echo "</tr>\n";
+// end of media-only result listing
+?>

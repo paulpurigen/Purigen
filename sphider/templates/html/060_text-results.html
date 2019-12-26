@@ -1,0 +1,221 @@
+<?php
+// display result listing
+
+echo "<!-- Text result listing for next link starts here -->\n";
+echo "<div class='resultlist'>\n";
+
+// not for domain sorting
+if ($sort_results < 2 || $sort_results > 4)
+{
+   $buf = ($num & 1) ? "odrow" : "evrow";
+   echo "<div class='$buf'>\n";
+}
+// for domain sorting enter here
+else
+{
+   // if new host should be displayed
+   if ($change == '1')
+   {
+      // createa an additional blank row
+      if ($template == 'Pure')
+      {
+         echo "<p>&nbsp;</p>\n";
+      }
+
+      if ($class == "odrow" || $class == "odrow2")
+      {
+         $class = "evrow";
+
+         echo "</div>\n";
+         echo "<div class='evrow'>\n";
+      }
+      else
+      {
+         $class = "odrow";
+
+         echo "</div>\n";
+         echo "<div class='odrow'>\n";
+      }
+   }
+   // follow up links of same host
+   else
+   {
+      // add margin-left for 'like Google'
+      if ($sort_results == '4')
+      {
+         if ($class == "odrow")
+         {
+            $class = "odrow2";
+
+            echo "</div>\n";
+            echo "<div class='odrow2'>\n";
+         }
+         else
+         {
+            $class = "evrow2";
+
+            echo "</div>\n";
+            echo "<div class='evrow2'>\n";
+         }
+      }
+   }
+}
+
+if ($template != "Pure")
+{
+   // this routine places a "to page top" link on every 10th record
+   if (ceil($num / 10) == $num / 10)
+   {
+        echo"   <a class='navup' href='javascript:JumpUp()' title='Jump to top of this page'>" . $sph_messages['top'] . "</a>\n";
+   }
+}
+
+echo "<div class='title'>\n";
+
+if ($show_res_num)
+{
+   echo "<em class='sml'>$num</em>\n";
+}
+
+echo "<a href='$url_click' title='" . $sph_messages['New_window'] . "' target='_blank'>";
+echo ($title) ? $title : $sph_messages['Untitled'];
+echo "</a>\n";
+echo "</div>\n";
+
+// get media objects for this page and present them
+if ($show_media == '1' && $text_only != '1')
+{
+   $all         = '';
+   $mode        = '2';
+   $media_type  = 'text';
+   $smt_but     = $sph_messages['t_search'];
+   // show extract of full text
+   if ($template != 'Pure')
+   {
+      echo "<br>\n";
+   }
+
+   echo "<table width='94%' class='sml cntr'>\n";
+   echo "<tr>\n";
+
+   if ($template != 'Pure')
+   {
+      echo "<td  width='12%' class='cntr'>\n";
+      echo "<a href='$search_string?search=1&amp;link=$url1&amp;query_t=$query&amp;media_type=$media_type&amp;media_only=0&amp;smt_button=$smt_but&amp;category=$category&amp;catid=$catid&amp;mark=$mark&amp;results=" . $results_per_page . $type_qry . $adv_qry ."' title='" . $sph_messages['allMedia'] . "'>";
+      echo "<img src='$image_dir/text.gif' border='0' alt='text results' title='text results'>";
+      echo "</a></td>\n";
+   }
+
+   echo "<td class='description left'>$fulltxt</td>\n";
+   echo "</tr>\n";
+   echo "</table>\n";
+
+   // present media results for this page
+   if ($index_image == '1')
+   {
+      $image_results = image($query, $url, 'image', $all, $urlx, $title1, $image_dir, 'allImages', 'allImages', 'camera60.gif', $mode, $media_only, $type, $category, $catid, $mark, $db, $prefix, $domain);
+
+      // prepare media results for XML output file
+      if ($image_results && $out == 'xml')
+      {
+         $media_results = array_merge($media_results, $image_results);
+      }
+   }
+
+   if ($index_audio == '1')
+   {
+      $audio_results = media($query, $url, 'audio', $all, $urlx, $title1, $image_dir, 'foundAudio', 'allAudio', 'notes60.gif', $mode, $media_only, $type, $category, $catid, $mark, $db, $prefix, $domain);
+
+      // prepare media results for XML output file
+      if ($audio_results && $out == 'xml')
+      {
+         $media_results = array_merge($media_results, $audio_results);
+      }
+   }
+
+   if ($index_video == '1')
+   {
+      $video_results = media($query, $url, 'video', $all, $urlx, $title1, $image_dir, 'foundVideo', 'allVideo', 'film60.gif', $mode, $media_only, $type, $category, $catid, $mark, $db, $prefix, $domain);
+
+      // prepare media results for XML output file
+      if ($video_results && $out == 'xml')
+      {
+         $media_results = array_merge($media_results, $video_results);
+      }
+   }
+
+   if ($template != 'Pure')
+   {
+      echo "<br>\n";
+   }
+}
+// if no media results should be presented, enter here
+else
+{
+   if ($shot)
+   {
+      echo "<div class='description'>\n";
+      echo "<table>\n";
+      echo "<tr>\n";
+      echo "<td><img src='$file' border='1' alt='webshot'></td>\n";
+      echo "<td class='descr_shot'>$fulltxt</td>\n";
+      echo "</tr>\n";
+      echo "</table>\n";
+      echo "</div>\n";
+   }
+   else
+   {
+      echo "<div class='description'>$fulltxt</div>\n";
+   }
+}
+
+/* special output for Mark Belanger
+echo "<div class='description'Source: $title_priv</div>\n";
+*/
+
+if ($show_res_url)
+{
+   echo "<div class='url'>$weight URL: <a href='$url_click' title='" . $sph_messages['New_window'] . "' target='_blank'>$urlx</a> - $page_size\r\n";
+   echo "</div>\n";
+}
+
+if (    ($sort_results == '3' && $dom_count == $i)
+     || ($sort_results == '4' && $i == '2')
+   )
+{
+   echo "<br>\n";
+   echo "&nbsp;&nbsp;&nbsp;&nbsp;[ <a href='$search_string?query_t="
+      . quote_replace(addmarks($query))
+      . "&amp;search=1&amp;results=$results_per_page&amp;domain=$domain_name'>" . $sph_messages['MoreDomRes'] . " $domain_name</a> ]\n";
+   echo "<br>\n";
+}
+
+// Show more results of selectable categories
+if ($more_catres == '1' && $catlink)
+{
+   if ($category == '-1')
+   {
+      echo "<div class='description'>\n";
+      echo $sph_messages['MoreCatRes'] . $cat_links;
+      echo "</div>\n";
+   }
+   // only sub-categories
+   else
+   {
+      echo "<div class='description'>\n";
+      echo $sph_messages['MoreSubCatRes'] . $cat_links;
+      echo "</div>\n";
+   }
+}
+
+echo "</div>\n";
+
+if ($sort_results != '2' && $sort_results != '3' && $sort_results != '4')
+{
+   echo "</div>\n";
+}
+
+echo "<!-- End for above link -->\n";
+
+// display result listing
+?>

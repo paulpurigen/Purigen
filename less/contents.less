@@ -1,0 +1,1338 @@
+@import "common";
+
+.main-visual {
+	position: relative;
+	overflow: hidden;
+	&-slide {
+		transition: all ease .3s;
+		position: relative;
+		display: flex;
+		height: 816px;
+		li {
+			overflow: hidden;
+			position: relative;
+			flex-shrink: 0;
+			width: 100%;
+			height: 100%;
+			padding: 338px 0 0 0;
+			background-color: #000;
+			video {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: auto;
+				height: auto;
+				min-height: 100%;
+				min-width: 100%;
+			}
+			article {
+				position: relative;
+				max-width: 1366px;
+				margin: 0 auto;
+				padding-top: 100px;
+				background: url('../images/icon-3leaf-blue.svg') 0 0 no-repeat;
+				background-size: 120px auto;
+				h2 {
+					margin-bottom: 25px;
+					line-height: 1.3;
+					font-family: 'Forza-Bold';
+					font-size: 35px;
+					color: #fff;
+				}
+				h3 {
+					margin-bottom: 10px;
+					line-height: 1.3;
+					font-family: 'Forza-Light';
+					font-size: 22px;
+					color: #a2a9ad;
+				}
+				p {
+					margin-bottom: 40px;
+					line-height: 1.4;
+					font-family: 'Roboto-Light';
+					font-size: 20px;
+					color: #a2a9ad;
+				}
+				a {
+					line-height: 30px;
+					font-family: 'Forza-Bold';
+					font-size: 16px;
+					color: #fff;
+				}
+			}
+		}
+	}
+	&-page {
+		position: absolute;
+		bottom: 30px;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: flex-end;
+		max-width: 1366px;
+		margin: 0 auto;
+		a {
+			opacity: .9;
+			width: 30px;
+			height: 16px;
+			margin-left: 15px;
+			background-image: url('../images/icon-leaf-white.svg');
+			background-size: cover;
+			.ir();
+			&.active {
+				opacity: 1;
+				background-image: url('../images/icon-leaf-blue.svg');
+			}
+		}
+	}
+}
+.main-product {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 1366px;
+	margin: 0 auto;
+	padding: 55px 0 25px;
+	dl {
+		width: 33.33%;
+		padding: 155px 55px 0;
+		text-align: center;
+		margin-bottom: 50px;
+		line-height: 1.2;
+		&:nth-child(1) {
+			background: url('../images/icon-higher-yield-1.svg') 50% 0 no-repeat;
+			background-size: 100px auto;
+		}
+		&:nth-child(2) {
+			background: url('../images/icon-dna-1.svg') 50% 0 no-repeat;
+			background-size: 153px auto;
+		}
+		&:nth-child(3) {
+			background: url('../images/icon-save-time-1.svg') 50% 0 no-repeat;
+			background-size: 111px auto;
+		}
+		&:nth-child(4) {
+			background: url('../images/icon-purigen-itp.svg') 50% 0 no-repeat;
+			background-size: 237px auto;
+		}
+		&:nth-child(5) {
+			background: url('../images/icon-ffpe.svg') 50% 0 no-repeat;
+			background-size: 155px auto;
+		}
+		&:nth-child(6) {
+			background: url('../images/icon-ffpe.svg') 50% 0 no-repeat;
+			background-size: 155px auto;
+		}
+	}
+	dt {
+		height: 70px;
+		font-size: 25px;
+		font-family: 'Forza-Book';
+		color: @primary-blue;
+	}
+	dd {
+		font-size: 18px;
+		color: #54565a;
+		font-family: 'Roboto-Light';
+		line-height: 1.4;
+	}
+}
+.main-movie {
+	padding: 50px 0 40px;
+	border-bottom: 5px solid #54565a;
+	background-color: #0b1015;
+	&-inner {
+		position: relative;
+		text-align: center;
+		max-width: 1366px;
+		margin: 0 auto;
+	}
+	h2 {
+		display: inline-block;
+		position: relative;
+		height: 60px;
+		line-height: 63px;
+		padding-left: 65px;
+		margin-bottom: 20px;
+		font-family: 'Forza-Bold';
+		font-size: 24px;
+		color: #fff;
+		background: url('../images/icon-purigen-white.svg') 0 50% no-repeat;
+		background-size: 40px 40px;
+	}
+	p {
+		padding: 0 120px;
+		margin-bottom: 30px;
+		line-height: 1.5;
+		font-family: 'Roboto-Light';
+		font-size: 16px;
+		color: #a2a9ad;
+	}
+	&-section {
+		position: relative;
+		padding-bottom: 56.25%;
+	}
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		max-width: 100%;
+		width: 100%;
+		margin: 0;
+		line-height: 1;
+		border: none;
+	}
+}
+.main-event {
+	position: relative;
+	text-align: center;
+	padding-top: 50px;
+	max-width: 1366px;
+	margin: 0 auto;
+	h2 {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 20px;
+		padding-left: 45px;
+		font-family: 'Forza-Bold';
+		font-size: 22px;
+		color: #101820;
+		line-height: 1.7;
+		&::before {
+			content: '\f073';
+			font-family: "Font Awesome 5 Free";
+			font-weight: 400;
+			font-size: 1.4em;
+			position: absolute;
+			top: -10px;
+			left: 0;
+		}
+	}
+	ul {
+		display: flex;
+	}
+	li {
+		flex: 1;
+		&:nth-child(2n) {
+			background-color: #f8f8f8;
+		}
+		a {
+			display: block;
+			height: 330px;
+			padding: 33px 15px;
+			text-align: center;
+			color: #7d7f82;
+		}
+		.event-thumb {
+			margin-bottom: 25px;
+		}
+		.event-date {
+			margin-bottom: 5px;
+			font-size: 16px;
+		}
+		.event-title {
+			font-size: 19px;
+			font-family: 'Forza-Bold';
+			color: #101820;
+		}
+		.event-location {
+			font-size: 16px;
+			font-family: 'Roboto-Medium';
+		}
+		.event-section {
+			margin-top: 10px;
+			font-family: 'Forza-Light';
+			font-size: 20px;
+			color: #101820;
+		}
+	}
+}
+.main-news {
+	position: relative;
+	padding: 35px 40px 30px;
+	text-align: center;
+	background-color: #1d1f23;
+	h2 {
+		position: relative;
+		display: inline-block;
+		padding-left: 50px;
+		margin-bottom: 30px;
+		font-size: 22px;
+		font-family: 'Forza-Bold';
+		color: #fff;
+		line-height: 1.8;
+		&::before {
+			content: '\f0ac';
+			font-family: "Font Awesome 5 Free";
+			font-weight: 700;
+			position: absolute;
+			top: -10px;
+			left: 0;
+			font-size: 1.4em;
+		}
+		br {
+			display: none;
+		}
+	}
+	dl {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 15px;
+		font-family: 'Roboto-Light';
+		font-size: 16px;
+		color: #a2a9ad;
+	}
+	dt {
+		position: relative;
+		padding-right: 20px;
+		margin-right: 18px;
+		font-weight: 700;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto 0;
+			width: 2px;
+			height: 14px;
+			background-color: #a2a9ad;
+		}
+	}
+	article {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		margin-bottom: 35px;
+		.fas {
+			font-size: 1.6em;
+		}
+		p {
+			margin: 0 20px 4px 20px;
+			font-size: 18px;
+			font-family: 'Roboto-Medium';
+			color: #fff;
+		}
+	}
+	&-more {
+		display: flex;
+		justify-content: center;
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 135px;
+			height: 38px;
+			border: 1px solid #b0b1b2;
+			border-radius: 1px;
+			font-family: 'Forza-Bold';
+			font-size: 14px;
+			color: rgba(255, 255, 255, .65);
+		}
+	}
+}
+.main-workflow {
+	position: relative;
+	max-width: 1366px;
+	padding: 60px 0;
+	margin: 0 auto;
+	text-align: center;
+	color: @primary-blue;
+	line-height: 1.4;
+	h2 {
+		font-size: 25px;
+		font-family: 'Forza-Bold';
+	}
+	p {
+		margin-bottom: 45px;
+		font-size: 18px;
+		font-family: 'Forza-Book';
+	}
+	&-inner {
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+		padding: 0 25px;
+	}
+	.fas {
+		display: none;
+		position: absolute;
+		bottom: 20px;
+		&.fa-chevron-left {
+			left: 20px;
+		}
+		&.fa-chevron-right {
+			right: 20px;
+		}
+	}
+}
+.about-us {
+	position: relative;
+	h2 {
+		margin-bottom: 40px;
+		text-align: center;
+		font-family: 'Forza-Book';
+		font-size: 37px;
+		color: @primary-blue;
+	}
+	p {
+		margin-bottom: 100px;
+		font-family: 'Roboto-Light';
+		font-size: 17px;
+		line-height: 1.5;
+		color: #101820;
+	}
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	li {
+		width: 33.33%;
+		margin-bottom: 50px;
+		&:nth-child(4), &:nth-child(5) {
+			margin-bottom: 0;
+		}
+	}
+}
+.brochures-list {
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	li {
+		width: 30%;
+		margin-right: 5%;
+		margin-bottom: 60px;
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+	}
+}
+.careers {
+	&-view {
+		display: none;
+		position: relative;
+		width: 128px;
+		height: 23px;
+		margin: 0 auto 30px;
+		text-align: center;
+		font-size: 12px;
+		text-transform: uppercase;
+		color: @primary-blue;
+		border: 2px solid @primary-light-blue;
+	}
+	h2 {
+		text-align: center;
+		font-family: 'Forza-Bold';
+		font-size: 28px;
+		color: @primary-blue;
+		margin: 75px 0 0 0;
+	}
+	> p {
+		margin-bottom: 30px;
+		text-align: center;
+		font-size: 18px;
+		color: #54565a;
+		font-family: 'Roboto-Light';
+		a {
+			font-weight: 500;
+			color: @primary-blue;
+		}
+	}
+	&-list {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 50px;
+		ul {
+			margin-right: 90px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		li {
+			position: relative;
+			padding-left: 22px;
+			margin-bottom: 5px;
+			font-family: 'Forza-Medium';
+			font-size: 18px;
+			color: @primary-light-blue;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 11px;
+				left: 0;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background-color: #6abf4b;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&-options {
+		h2 {
+			margin-bottom: 50px;
+		}
+		li {
+			&:nth-child(odd) {
+				background-color: #f2f2f2;
+			}
+			article {
+				position: relative;
+				width: 766px;
+				padding: 35px 0;
+				margin: 0 auto;
+				h3 {
+					font-size: 16px;
+					font-family: 'Roboto-Medium';
+					color: #54565a;
+				}
+				p {
+					font-size: 24px;
+					font-family: 'Roboto-Medium';
+					color: @primary-blue;
+				}
+				a {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					right: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 125px;
+					height: 40px;
+					font-size: 14px;
+					color: @primary-blue;
+					font-family: 'Forza-Medium';
+					margin: auto 0;
+					.button-border();
+				}
+			}
+		}
+	}
+}
+.featured-event {
+	display: none;
+	position: relative;
+	text-align: center;
+	h2 {
+		margin-bottom: 60px;
+		text-transform: uppercase;
+		font-family: 'Forza-Bold';
+		font-size: 12px;
+		color: rgba(255, 255, 255, .7);
+	}
+	h3 {
+		margin-bottom: 10px;
+		font-family: 'Forza-Bold';
+		font-size: 32px;
+		color: #fff;
+	}
+	&-booth {
+		width: 137px;
+		height: 37px;
+		margin: 0 auto 20px;
+		line-height: 37px;
+		color: #fff;
+		font-family: 'Forza-Book';
+		font-size: 20px;
+		background-color: @primary-light-blue;
+	}
+	&-location {
+		font-family: 'Forza-Book';
+		font-size: 14px;
+		color: rgba(255, 255, 255, .5);
+	}
+	&-date {
+		margin-bottom: 20px;
+		color: #fff;
+		font-family: 'Forza-Medium';
+		font-size: 20px;
+	}
+	&-view {
+		a {
+			display: block;
+			width: 96px;
+			height: 26px;
+			line-height: 22px;
+			text-align: center;
+			margin: 0 auto;
+			border: 2px solid #bab8b8;
+			border-radius: 3px;
+			font-family: 'Forza-Bold';
+			font-size: 11px;
+			color: #bab8b8;
+		}
+	}
+}
+.upcoming-event {
+	position: relative;
+	li {
+		position: relative;
+		height: 255px;
+		&:nth-child(odd) {
+			background-color: #f2f2f2;
+		}
+	}
+	&-contents {
+		position: relative;
+		max-width: 1024px;
+		margin: 0 auto;
+		padding: 25px 0;
+		font-family: 'Roboto-Medium';
+		.news-date {
+			margin-bottom: 25px;
+			font-size: 16px;
+			color: #54565a;
+		}
+		.news-title {
+			margin-bottom: 15px;
+			max-width: 860px;
+			line-height: 1.3;
+			font-family: 'Roboto-Medium';
+			font-size: 20px;
+			color: @primary-blue;
+		}
+		.news-article {
+			max-width: 860px;
+			line-height: 1.5;
+			font-family: 'Roboto-Light';
+			font-size: 16px;
+			margin-bottom: 30px;
+		}
+	}
+	&-date {
+		margin-bottom: 15px;
+		font-size: 18px;
+		color: @primary-light-blue;
+		font-family: 'Roboto-Medium';
+	}
+	&-container {
+		position: relative;
+		padding-left: 245px;
+	}
+	&-type {
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-family: 'Forza-Book';
+		font-size: 16px;
+		color: #707070;
+	}
+	&-thumb {
+		position: absolute;
+		left: 0;
+		top: 30px;
+	}
+	&-contact {
+		position: relative;
+	}
+	&-location {
+		color: #54565a;
+		font-size: 16px;
+		font-family: 'Roboto-Medium';
+		margin-bottom: 10px;
+		em {
+			font-weight: 500;
+		}
+		span {
+			margin: 0 5px;
+		}
+	}
+	&-title {
+		margin-bottom: 5px;
+		font-family: 'Forza-Bold';
+		font-size: 22px;
+		color: #101820;
+	}
+	&-booth {
+		margin-bottom: 5px;
+		font-family: 'Forza-Light';
+		font-size: 24px;
+		color: #427cbf;
+	}
+	&-desc {
+		font-family: 'Roboto-Light';
+		font-size: 16px;
+		line-height: 1.4;
+		color: #54565a;
+	}
+	&-view {
+		position: absolute;
+		right: 0;
+		top: 35px;
+	}
+}
+.location {
+	position: relative;
+	height: 1080px;
+	margin-bottom: 50px;
+	background-size: cover;
+}
+.contact {
+	display: flex;
+	max-width: 1366px;
+	margin: 0 auto 50px;
+	&-thumb {
+		width: 57%;
+		margin-right: 55px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&-detail {
+		h3 {
+			margin-bottom: 30px;
+			line-height: 1.25;
+			font-family: 'Forza-Book';
+			font-size: 37px;
+			color: @primary-blue;
+		}
+		p {
+			margin-bottom: 10px;
+			line-height: 1.25;
+			font-weight: 300;
+			font-size: 19px;
+			color: #54565a;
+			strong {
+				font-weight: 500;
+				font-size: 23px;
+				color: #101820;
+			}
+			&:last-of-type {
+				margin-bottom: 20px;
+			}
+		}
+		dl {
+			display: flex;
+			font-size: 18px;
+			color: #54565a;
+		}
+		dt {
+			width: 75px;
+			font-weight: 500;
+		}
+	}
+	&-directions {
+		display: flex;
+		align-items: center;
+		margin-top: 50px;
+		img {
+			width: 50px;
+			height: auto;
+			margin-right: 20px;
+		}
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 124px;
+			height: 29px;
+			font-size: 15px;
+			font-family: 'Forza-Bold';
+			color: @primary-blue;
+			.button-border();
+		}
+	}
+}
+.article-view {
+	position: relative;
+	width: 780px;
+	margin: 0 auto;
+	article {
+		font-family: 'Roboto-Light';
+		font-size: 16px;
+		line-height: 1.7;
+		em {
+			font-family: 'Roboto-Bold';
+		}
+	}
+}
+.article-control {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 60px;
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 105px;
+		height: 30px;
+		font-size: 13px;
+		text-transform: uppercase;
+		font-family: 'Forza-Medium';
+		color: @primary-blue;
+		.button-border();
+		&.article-back {
+			.fas {
+				margin-right: 5px;
+			}
+		}
+		&.article-forward {
+			.fas {
+				margin-left: 5px;
+			}
+		}
+	}
+}
+.article-util {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 50px;
+	.article-date {
+		font-size: 14px;
+		font-family: 'Roboto-Medium';
+	}
+	dl {
+		display: flex;
+		align-items: center;
+	}
+	dt {
+		margin-right: 10px;
+		font-weight: 500;
+		font-size: 14px;
+		color: @primary-blue;
+	}
+	dd {
+		display: flex;
+		a {
+			margin-left: 10px;
+		}
+		.fab {
+			font-size: 1.8em;
+			color: @primary-blue;
+		}
+	}
+}
+.article-title {
+	position: relative;
+	h2 {
+		margin-bottom: 15px;
+		line-height: 1.4;
+		font-family: 'Forza-Bold';
+		font-size: 20px;
+		color: @primary-blue;
+	}
+	h3 {
+		margin-bottom: 25px;
+		line-height: 1.4;
+		font-family: 'Roboto-Light-It';
+		font-size: 17px;
+	}
+}
+.media-contact {
+	dt {
+		margin-bottom: 5px;
+		font-size: 18px;
+	}
+	dd {
+		font-size: 14px;
+		font-weight: 300;
+		strong {
+			color: @primary-blue;
+		}
+	}
+}
+.policy {
+	position: relative;
+	background-color: #f2f2f2;
+	&-inner {
+		padding: 30px 0 60px;
+		max-width: 1024px;
+		margin: 0 auto;
+	}
+	&-update {
+		margin-bottom: 35px;
+		font-family: 'Roboto-Book';
+		font-size: 16px;
+	}
+	h3 {
+		font-size: 18px;
+		font-family: 'Roboto-Medium';
+		margin-bottom: 5px;
+	}
+	p {
+		margin-bottom: 25px;
+		line-height: 1.7;
+		font-size: 14px;
+		font-family: 'Roboto-Light';
+	}
+	ul {
+		margin-bottom: 25px;
+	}
+	li {
+		position: relative;
+		padding-left: 16px;
+		margin-bottom: 15px;
+		line-height: 1.7;
+		font-size: 14px;
+		font-family: 'Roboto-Light';
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 9px;
+			left: 0;
+			width: 6px;
+			height: 6px;
+			background-color: #0e3455;
+			border-radius: 50%;
+		}
+	}
+}
+.ampere-info {
+	position: relative;
+	padding: 0 100px 60px;
+	max-width: 1366px;
+	margin: 0 auto;
+	h2 {
+		text-align: center;
+		font-family: 'Forza-Light';
+		font-size: 34px;
+		color: #3a7bc8;
+		margin-bottom: 15px;
+	}
+	> p {
+		margin-bottom: 30px;
+		text-align: center;
+		font-size: 18px;
+		color: #54565a;
+		font-family: 'Roboto-Light';
+		line-height: 1.5;
+		a {
+			font-weight: 500;
+			color: @primary-blue;
+		}
+	}
+	&-list {
+		display: flex;
+		justify-content: center;
+		padding-left: 150px;
+		margin-bottom: 50px;
+		ul {
+			margin-right: 90px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		li {
+			position: relative;
+			padding-left: 22px;
+			margin-bottom: 10px;
+			font-family: 'Forza-Medium';
+			font-size: 18px;
+			line-height: 1.4;
+			color: @primary-light-blue;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 11px;
+				left: 0;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background-color: #6abf4b;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&-system {
+		position: relative;
+		min-height: 266px;
+		padding-top: 30px;
+		background: url('../images/icon-purigen-itp.svg') 100% 0 no-repeat;
+		background-size: 476px 266px;
+		h3 {
+			margin-bottom: 10px;
+			font-family: 'Forza-Bold';
+			font-size: 26px;
+			color: @primary-blue;
+		}
+		p {
+			font-size: 18px;
+			font-family: 'Roboto-Light';
+			line-height: 1.5;
+			em {
+				font-family: 'Roboto-Medium';
+				color: @primary-blue;
+			}
+			strong {
+				color: #101820;
+			}
+		}
+	}
+}
+.purigen-workflow {
+	&-inner {
+		position: relative;
+		height: 345px;
+		padding-top: 135px;
+		text-align: center;
+		background-color: @primary-blue;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 35px;
+			left: 0;
+			right: 0;
+			opacity: .75;
+			width: 94px;
+			height: 77px;
+			margin: 0 auto;
+			background-image: url('../images/icon-purigen-system-white.svg');
+			background-size: cover;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -30px;
+			left: 0;
+			right: 0;
+			width: 230px;
+			height: 30px;
+			margin: 0 auto;
+			background-image: url('../images/bg_purigen_workflow.png');
+		}
+		h3 {
+			font-size: 26px;
+			font-family: 'Forza-Bold';
+			color: #ffffff;
+		}
+		em {
+			font-family: 'Forza-Light';
+			font-size: 24px;
+			color: rgba(255, 255, 255, .75);
+		}
+		p {
+			margin-top: 20px;
+			line-height: 1.4;
+			font-family: 'Roboto-Light';
+			font-size: 18px;
+			color: #ffffff;
+		}
+	}
+	ol {
+		display: flex;
+		justify-content: center;
+		padding-top: 60px;
+		li {
+			margin-right: 80px;
+			&:last-child {
+				margin-right: 0;
+			}
+			h4 {
+				display: flex;
+				align-items: center;
+				margin-bottom: 18px;
+				color: #101820;
+				font-family: 'Forza-Bold';
+				font-size: 17px;
+				em {
+					margin-right: 20px;
+					font-size: 38px;
+					font-family: 'Forza-Bold';
+					color: @primary-blue;
+				}
+			}
+			article {
+				position: relative;
+				padding-top: 175px;
+				font-size: 16px;
+				color: #101820;
+				background: 0 0 no-repeat;
+			}
+			&:nth-child(1) {
+				article {
+					background-image: url('../images/purigen-workflow1.png');
+				}
+			}
+			&:nth-child(2) {
+				article {
+					background-image: url('../images/purigen-workflow2.png');
+				}
+			}
+			&:nth-child(3) {
+				article {
+					background-image: url('../images/purigen-workflow3.png');
+				}
+			}
+			p {
+				margin-top: 10px;
+				padding-left: 45px;
+				color: @primary-light-blue;
+				font-size: 27px;
+				strong {
+					font-family: 'Forza-Book';
+				}
+			}
+		}
+	}
+	&-bar {
+		margin-top: 35px;
+		text-align: center;
+		font-family: 'Forza-Bold';
+		font-size: 19px;
+		color: #ffffff;
+		background-color: @primary-blue;
+	}
+}
+.proof-data {
+	position: relative;
+	max-width: 1366px;
+	padding-top: 55px;
+	margin: 0 auto;
+	text-align: center;
+	h2 {
+		font-family: 'Forza-Book';
+		color: @primary-blue;
+		font-size: 34px;
+	}
+	p {
+		margin-bottom: 10px;
+		text-align: center;
+		font-size: 21px;
+		color: @primary-blue;
+	}
+	h3 {
+		font-family: 'Forza-Book';
+		font-size: 19px;
+		color: #101820;
+	}
+	&-ex {
+		display: flex;
+		justify-content: center;
+		margin-top: 45px;
+		dl {
+			margin-right: 80px;
+			text-align: center;
+			background: 50% 0 no-repeat;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		dt {
+			margin-bottom: 25px;
+			font-family: 'Forza-Bold';
+			font-size: 20px;
+			color: #101820;
+		}
+	}
+}
+.specifications {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin-top: 60px;
+	&-inner {
+		position: relative;
+		min-height: 344px;
+		padding: 35px 0 0 300px;
+		background: url('../images/purigen-spec.png') 0 0 no-repeat;
+	}
+	h3 {
+		font-family: 'Forza-Bold';
+		font-size: 25px;
+		color: @primary-blue;
+	}
+	p {
+		margin-bottom: 30px;
+		font-size: 17px;
+		color: @primary-blue;
+	}
+	li {
+		font-size: 16px;
+		color: #101820;
+	}
+}
+.technology-visual {
+	position: relative;
+	padding-top: 153px;
+	background-color: #101820;
+	text-align: center;
+	h2 {
+		margin-bottom: 20px;
+		font-size: 28px;
+		font-family: 'Forza-Bold';
+		color: #ffffff;
+	}
+	&-movie {
+		position: relative;
+		max-width: 1366px;
+		margin: 0 auto;
+		padding-bottom: 56.25%;
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			max-width: 100%;
+			width: 100%;
+			margin: 0;
+			line-height: 1;
+			border: none;
+		}
+	}
+	&-request {
+		position: relative;
+		padding: 33px 0 40px;
+		background-color: #2a3238;
+		dl {
+			text-align: center;
+		}
+		dt {
+			font-family: 'Forza-Bold';
+			font-size: 28px;
+			color: #fff;
+		}
+		dd {
+			font-size: 20px;
+			font-family: 'Roboto-Light';
+			color: #ccc;
+		}
+		a {
+			display: inline-block;
+			min-width: 120px;
+			height: 40px;
+			padding: 0 20px;
+			margin-top: 30px;
+			text-align: center;
+			line-height: 40px;
+			font-size: 14px;
+			font-family: 'Forza-Bold';
+			color: #fff;
+			border-radius: 1px;
+			border: 1px solid #b5b7ba;
+		}
+	}
+}
+.technology-solution {
+	position: relative;
+	display: flex;
+	max-width: 1366px;
+	padding: 55px 62px 80px;
+	margin: 0 auto;
+	dl {
+		flex: 1;
+		margin-right: 40px;
+		text-align: center;
+		&:last-child {
+			margin-right: 0;
+		}
+		&:nth-child(1) {
+			dt {
+				color: #ed193d;
+			}
+			> div {
+				margin-top: 35px;
+				img {
+					width: 223px;
+					height: 221px;
+				}
+			}
+		}
+		&:nth-child(2) {
+			dt {
+				color: #3a7bc8;
+			}
+			> div {
+				margin-top: 55px;
+				img {
+					width: 335px;
+					height: 188px;
+				}
+			}
+		}
+	}
+	dt {
+		margin-bottom: 30px;
+		font-size: 37px;
+		font-family: 'Forza-Book';
+	}
+	dd {
+		line-height: 1.5;
+		font-size: 18px;
+		font-family: 'Roboto-Light';
+		color: #54565a;
+		.thumb {
+			margin-bottom: 50px;
+			border: 6px solid #ededed;
+			box-shadow: 0 1px 0 #b9b9b9;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		p {
+			margin-bottom: 20px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+.technology-article {
+	position: relative;
+	background-color: #1c2228;
+	&-inner {
+		position: relative;
+		max-width: 1366px;
+		margin: 0 auto;
+		padding: 60px 0;
+		text-align: center;
+		h3 {
+			margin-bottom: 20px;
+			font-family: 'Forza-Bold';
+			font-size: 24px;
+			color: #fff;
+		}
+		article {
+			line-height: 1.6;
+			font-family: 'Roboto-Light';
+			font-size: 17px;
+			color: #EBEBEB;
+		}
+	}
+}
+.sample-solution {
+	position: relative;
+	text-align: center;
+	max-width: 1366px;
+	margin: 0 auto;
+	padding: 80px 80px 0;
+	h3 {
+		margin-bottom: 40px;
+		font-family: 'Forza-Bold';
+		font-size: 24px;
+		color: #101820;
+	}
+	img {
+	
+	}
+}
+.download-brochure {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	p {
+		margin-bottom: 30px;
+		font-family: 'Forza-Light';
+		font-size: 18px;
+		color: #404649;
+	}
+}

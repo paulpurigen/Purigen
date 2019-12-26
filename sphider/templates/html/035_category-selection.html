@@ -1,0 +1,181 @@
+<?php
+// display main category selection
+
+echo "<!-- Multiple category selection -->\n";
+echo "<table class='searchBox'>\n";
+echo "<tr>\n";
+echo "<td class='mak_1'>" . $sph_messages['Categories'] . ":</td>\n";
+echo "</tr>\n";
+echo "<tr>\n";
+
+if ($group_name_0)
+{   
+   echo "<td>$group_name_0</td>\r\n";
+}
+
+if ($group_name_1)
+{ 
+   echo "<td>$group_name_1</td>\r\n";
+}
+
+if ($group_name_2)
+{ 
+   echo "<td>$group_name_2</td>\r\n";
+}
+
+if ($group_name_3)
+{ 
+   echo "<td>$group_name_3</td>\r\n";
+}
+
+if ($group_name_4)
+{ 
+   echo "<td>$group_name_4</td>\r\n";
+}
+
+echo "</tr>\n";
+echo "<tr>\n";
+
+if ($group_name_0)
+{   
+   echo "<td>\n";
+   echo "<select name='cat_sel0' id='cat_sel0' title=''>\n";
+   
+   foreach ($group_sel0 as $key => $sel0)
+   {
+      echo "<option";
+      
+      if ($cat_sel0 == $sel0)
+         echo " selected='selected'";
+      
+      echo ">$sel0</option>\n";
+   }
+   
+   echo "</select>\n";
+   
+   echo "</br></br>\n";
+   echo "<select name='cat_sel0a' id='cat_sel0a' title=''>\n";
+   
+   foreach ($group_sel0a as $key => $sel0a)
+   {
+      echo "<option";
+      
+      if ($cat_sel0a == $sel0a)
+         echo " selected='selected'";
+      
+      echo ">$sel0a</option>\n";
+   }
+
+   echo "</select>\n";
+   echo "</td>\n";
+}
+
+if ($group_name_1)
+{ 
+   echo "<td>\n";
+   echo "<select name='cat_sel1' id='cat_sel1' title=''>\n";
+   
+   foreach ($group_sel1 as $key => $sel1)
+   {
+      echo "<option";
+      
+      if ($cat_sel1 == $sel1)
+         echo " selected='selected'";
+      
+      echo ">$sel1</option>\n";
+   }
+   
+   echo "</select>\n";
+   echo "</br></br></br>\n";
+   echo "</td>\n";
+}
+
+if ($group_name_2)
+{ 
+   echo "<td>\n";
+   echo "<select name='cat_sel2' id='cat_sel2' title=''>\n";
+   
+   foreach ($group_sel2 as $key => $sel2)
+   {
+      echo "<option";
+      
+      if ($cat_sel2 == $sel2)
+         echo " selected='selected'";
+         
+      echo ">$sel2</option>\n";
+   }
+
+   echo "</select>\n";
+   echo "</br></br></br>\n";
+   echo "</td>\n";
+}
+
+if ($group_name_3)
+{ 
+   echo "<td>\n";
+   echo "<select name='cat_sel3' id='cat_sel3' title=''>\n";
+   
+   foreach ($group_sel3 as $key => $sel3)
+   {
+      echo "<option";
+      
+      if ($cat_sel3 == $sel3)
+         echo " selected='selected'";
+      
+      echo ">$sel3</option>\n";
+   }
+
+   echo "</select>\n";
+   echo "</br></br></br>\n";
+   echo "</td>\n";
+}
+
+if ($group_name_4)
+{ 
+   echo "<td>\n";
+   echo "<select name='cat_sel4' id='cat_sel4' title=''>\n";
+   
+   foreach ($group_sel4 as $key => $sel4)
+   {
+      echo "<option";
+      
+      if ($cat_sel4 == $sel4)
+         echo " selected='selected'";
+      
+      echo ">$sel4</option>\n";
+   }
+
+   echo "</select>\n";
+   echo "</br></br></br>\n";
+   echo "</td>\n";
+}   
+
+echo "</tr>\n";
+echo "</table>\n";
+
+if (!$group_name_0)
+{ 
+   echo "<input type='hidden' name='cat_sel0' value=''>\n";
+}
+
+if (!$group_name_1)
+{ 
+   echo "<input type='hidden' name='cat_sel1' value=''>\n";
+}
+
+if (!$group_name_2)
+{ 
+   echo "<input type='hidden' name='cat_sel2' value=''>\n";
+}
+
+if (!$group_name_3)
+{ 
+   echo "<input type='hidden' name='cat_sel3' value=''>\n";
+}
+
+if (!$group_name_4)
+{ 
+   echo "<input type='hidden' name='cat_sel4' value=''>\n";
+}
+// end main category selection
+?>  

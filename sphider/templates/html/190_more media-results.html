@@ -1,0 +1,144 @@
+<?php
+// display links to other result pages
+echo "</table>\n";
+echo "<!-- Links to more media results -->\n";
+echo "<br>\n";
+echo "<a class='navup' href='#top' title='Jump to Page Top'>Top</a>\n";
+echo "<br>\n";
+echo "</div>\n";
+
+// If we have more than 1 result-page
+if ($pages > 1)
+{
+   echo "<div id='other_pages' class='tblhead'>\n";
+   echo "<p class='cntr'>" . $sph_messages["Result page"] . " $start " . $sph_messages["from"] . " $pages &nbsp;&nbsp;&nbsp;\n";
+
+   // Display 'First'
+   if ($start > 1)
+   {
+      echo "<a href='$search_string?query_t=" . (addmarks($query))
+         . "&amp;search=1"
+         . "&amp;smt_button=$smt_button"
+         . "&amp;media_only=$media_only"
+         . "&amp;query_m=" . (addmarks($query))
+         . "&amp;start=1"
+         . "&amp;category=$category"
+         . "&amp;catid=$catid"
+         . "&amp;mark=$mark"
+         . "&amp;results=" . $results_per_page . $type_qry . $adv_qry
+         . "&amp;db=$db"
+         . "&amp;prefix=$prefix"
+         . "&amp;domain=$domain'>"
+         . $sph_messages['First']
+         . "</a>\n";
+
+      // Display '-5'
+      if ($start > 5)
+      {
+         $minus = $start - 5;
+
+         echo "<a href='$search_string?query_t=" . (addmarks($query))
+            . "&amp;search=1"
+            . "&amp;smt_button=$smt_button"
+            . "&amp;media_only=$media_only"
+            . "&amp;query_m=" . (addmarks($query))
+            . "&amp;start=$minus"
+            . "&amp;category=$category"
+            . "&amp;catid=$catid"
+            . "&amp;mark=$mark"
+            . "&amp;results=" . $results_per_page . $type_qry . $adv_qry
+            . "&amp;db=$db"
+            . "&amp;prefix=$prefix"
+            . "&amp;domain=$domain'>- 5</a>\n";
+      }
+   }
+
+   // Display 'Previous'
+   if ($start > 1)
+   {
+      $prev = $start - 1;
+
+      echo "<a href='$search_string?query_t=" . (addmarks($query))
+         . "&amp;search=1"
+         . "&amp;smt_button=$smt_button"
+         . "&amp;media_only=$media_only"
+         . "&amp;query_m=" . (addmarks($query))
+         . "&amp;start=$prev"
+         . "&amp;category=$category"
+         . "&amp;catid=$catid"
+         . "&amp;mark=$mark"
+         . "&amp;results=" . $results_per_page . $type_qry . $adv_qry
+         . "&amp;db=$db"
+         . "&amp;prefix=$prefix"
+         . "&amp;domain=$domain'>"
+         . $sph_messages['Previous']
+         . "</a>\n";
+   }
+
+   // Display 'Next'
+   if ($rest >= $results_per_page)
+   {
+      $next = $start + 1;
+
+      echo "<a href='$search_string?query_t=" . (addmarks($query))
+         . "&amp;search=1"
+         . "&amp;smt_button=$smt_button"
+         . "&amp;media_only=$media_only"
+         . "&amp;query_m=" . (addmarks($query))
+         . "&amp;start=$next"
+         . "&amp;category=$category"
+         . "&amp;catid=$catid"
+         . "&amp;mark=$mark"
+         . "&amp;results=" . $results_per_page . $type_qry . $adv_qry
+         . "&amp;db=$db"
+         . "&amp;prefix=$prefix"
+         . "&amp;domain=$domain'>"
+         . $sph_messages['Next']
+         . "</a>\n";
+
+      // Display '+5'
+      if ($pages - $start > 5 )
+      {
+         $plus = $start + 5;
+
+         echo "<a href='$search_string?query_t=" . (addmarks($query))
+            . "&amp;search=1"
+            . "&amp;smt_button=$smt_button"
+            . "&amp;media_only=$media_only"
+            . "&amp;query_m=" . (addmarks($query))
+            . "&amp;start=$plus"
+            . "&amp;category=$category"
+            . "&amp;catid=$catid"
+            . "&amp;mark=$mark"
+            . "&amp;results=" . $results_per_page . $type_qry . $adv_qry
+            . "&amp;db=$db"
+            . "&amp;prefix=$prefix"
+            . "&amp;domain=$domain'>+ 5</a>\n";
+      }
+   }
+
+   // Display 'Last'
+   if ($start < $pages)
+   {
+      echo "<a href='$search_string?query_t=" . (addmarks($query))
+      . "&amp;search=1"
+      . "&amp;smt_button=$smt_button"
+      . "&amp;media_only=$media_only"
+      . "&amp;query_m=" . (addmarks($query))
+      . "&amp;start=$pages"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;mark=$mark"
+      . "&amp;results=" . $results_per_page . $type_qry . $adv_qry
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix"
+      . "&amp;domain=$domain'>"
+      . $sph_messages['Last']
+      . "</a>\n";
+   }
+
+echo "</p>\n";
+echo "</div>\n";
+}
+// end of display links to other result pages
+?>

@@ -1,0 +1,33 @@
+<?php
+
+    // display image results as add-on to text results
+    $thumb_link = str_replace($inst_dir, $install_url, $thumb_link);
+
+    echo "<td width='25%'>";
+    echo "<a href='$link_click' target='_blank' title='" . $sph_messages['openPicture'] . "'><img src='$thumb_link' border='1' alt='" . $sph_messages['openPicture'] . "'></a>\n";
+    echo "<p class='cntr sml'><strong>$title</strong></p>\n";
+
+    if ($index_id3 == '1')
+    {
+       echo "<a href='$include_dir/show_id3.php?media_id=" . $value[0] . "&amp;db=$db&amp;prefix=$prefix' target='_blank' title='EXIF Infos'>";
+       echo $sph_messages['more'] . " " . $sph_messages['details'];
+       echo "</a>\n";
+    }
+
+    echo "</td>\n";
+
+    $i++;
+
+    //end of row with 4 images
+    if ($i == '4')
+    {
+       $i = '0';
+
+       echo "</tr>\n";
+       echo "<tr>\n";
+       echo "<td>&nbsp;</td>\n";
+       echo "</tr>\n";
+       echo "<tr>\n";
+    }
+// end of image results
+?>

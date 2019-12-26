@@ -1,0 +1,7 @@
+class_value1
+class_value2
+do_not_index_these_classess
+and_so_on
+OR 
+regexp like:
+*/menu[0-5]/

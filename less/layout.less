@@ -1,0 +1,755 @@
+@import "common";
+
+#wrap {
+	position: relative;
+}
+#header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+}
+.header-gnb {
+	opacity: 0.95;
+	position: relative;
+	z-index: 10;
+	background-color: #091c28;
+	&-inner {
+		position: relative;
+		max-width: 1366px;
+		margin: 0 auto;
+		height: 108px;
+		padding-left: 360px;
+		h1 {
+			position: absolute;
+			top: 30px;
+			left: 0;
+			a {
+				display: block;
+				width: 255px;
+			}
+			img {
+				width: 255px;
+				height: auto;
+			}
+		}
+		a {
+			text-decoration: none;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			font-size: 25px;
+		}
+	}
+}
+.header-util {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	ul {
+		display: flex;
+		li {
+			margin-left: 14px;
+			a {
+				color: rgba(255, 255, 255, .5);
+			}
+			&.header-util-request {
+				margin: 8px 0 0 20px;
+				a {
+					display: flex;
+					align-items: center;
+					padding: 0 8px;
+					height: 22px;
+					font-family: 'Forza-Bold';
+					font-size: 11px;
+					border: 1px solid rgba(255, 255, 255, 0.7);
+					border-radius: 2px;
+				}
+			}
+		}
+	}
+}
+.header-gnb-list {
+	position: relative;
+	height: 100%;
+	ul {
+		display: flex;
+		align-items: flex-end;
+		height: 100%;
+		font-family: 'Forza-Medium';
+		line-height: 1.3;
+		li {
+			position: relative;
+			padding-top: 4px;
+			height: 45px;
+			text-transform: uppercase;
+			padding-right: 47px;
+			font-size: 14px;
+			color: rgba(255, 255, 255, 0.7);
+			cursor: pointer;
+			i {
+				position: relative;
+				top: -2px;
+			}
+			&:hover, &.active {
+				color: #fff;
+				&::after {
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					height: 4px;
+					background-color: #6abf4b;
+				}
+			}
+			&:hover {
+				.header-gnb-list-sub {
+					opacity: 1;
+					visibility: visible;
+					top: 20px;
+				}
+			}
+			&:first-child {
+				background: 0 50% no-repeat;
+				background-size: 15px auto;
+				dl {
+					&:nth-child(1) {
+						dd {
+							background-image: url('../images/icon-leaf-blue.svg');
+						}
+					}
+					&:nth-child(2) {
+						dd {
+							background-image: url('../images/icon-leaf-green.svg');
+						}
+					}
+					&:nth-child(3) {
+						dd {
+							background-image: url('../images/icon-leaf-black.svg');
+						}
+					}
+				}
+				dt {
+					font-family: 'Forza-Bold';
+					font-size: 15px;
+				}
+				dd {
+					padding-left: 28px;
+					background: 0 50% no-repeat;
+					background-size: 15px auto;
+				}
+			}
+		}
+	}
+	.header-gnb-list-sub {
+		opacity: 0;
+		visibility: hidden;
+		transition: all .3s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		padding-top: 60px;
+		dl {
+			line-height: 1.5;
+			min-width: 235px;
+			margin-right: 15px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		dt {
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			color: #101820;
+			border-bottom: 1px solid rgba(171, 177, 181, .85);
+		}
+		dd {
+			margin-bottom: 0 !important;
+			a {
+				font-family: 'Forza-Book';
+				font-size: 15px;
+				color: #32383e;
+				line-height: 1.9;
+			}
+		}
+	}
+}
+.header-gnb-sub {
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	position: absolute;
+	top: 78px;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.95);
+	> div {
+		position: relative;
+		max-width: 1366px;
+		margin: 0 auto;
+		height: 175px;
+		background: url('../images/icon-purigen-light-gray.svg') 0 50% no-repeat;
+		background-size: 100px 100px;
+	}
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		top: 108px;
+	}
+	//&-inner {
+	//	opacity: 0;
+	//	transition: all .3s ease;
+	//	position: absolute;
+	//	top: -20px;
+	//	left: 0;
+	//	display: flex;
+	//	padding: 30px 0 0;
+	//	&.active {
+	//		opacity: 1;
+	//		top: 0;
+	//	}
+	//	&:nth-child(1) {
+	//		left: 405px;
+	//	}
+	//	&:nth-child(2) {
+	//		left: 538px;
+	//	}
+	//	&:nth-child(3) {
+	//		left: 688px;
+	//	}
+	//	&:nth-child(4) {
+	//		left: 858px;
+	//	}
+	//	&:nth-child(5) {
+	//		left: 999px;
+	//	}
+	//	&:nth-child(6) {
+	//		left: 1123px;
+	//	}
+	//	dl {
+	//		line-height: 1.5;
+	//		min-width: 235px;
+	//		margin-right: 15px;
+	//		&:last-child {
+	//			margin-right: 0;
+	//		}
+	//	}
+	//	dt {
+	//		padding-bottom: 5px;
+	//		margin-bottom: 10px;
+	//		color: #101820;
+	//		border-bottom: 1px solid rgba(171, 177, 181, .85);
+	//	}
+	//	dd {
+	//		margin-bottom: 0 !important;
+	//		a {
+	//			font-family: 'Forza-Book';
+	//			font-size: 15px;
+	//			color: #32383e;
+	//			line-height: 1.9;
+	//		}
+	//	}
+	//	&:first-child {
+	//		background: 0 50% no-repeat;
+	//		background-size: 15px auto;
+	//		dl {
+	//			&:nth-child(1) {
+	//				dd {
+	//					background-image: url('../images/icon-leaf-blue.svg');
+	//				}
+	//			}
+	//			&:nth-child(2) {
+	//				dd {
+	//					background-image: url('../images/icon-leaf-green.svg');
+	//				}
+	//			}
+	//			&:nth-child(3) {
+	//				dd {
+	//					background-image: url('../images/icon-leaf-black.svg');
+	//				}
+	//			}
+	//		}
+	//		dt {
+	//			font-family: 'Forza-Bold';
+	//			font-size: 15px;
+	//		}
+	//		dd {
+	//			padding-left: 28px;
+	//			background: 0 50% no-repeat;
+	//			background-size: 15px auto;
+	//		}
+	//	}
+	//}
+}
+.header-search {
+	position: absolute;
+	bottom: 20px;
+	right: 0;
+	a {
+		color: rgba(255, 255, 255, .5);
+	}
+	&-field {
+		transition: all .3s ease;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 108px;
+		right: 0;
+		width: 530px;
+		height: 53px;
+		input {
+			width: 100%;
+			height: 100%;
+			padding: 0 15px;
+			color: #404649;
+			font-family: 'Roboto-Light';
+			font-size: 17px;
+			background-color: #fff;
+		}
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+#header.header-desktop-white {
+	.header-gnb {
+		background-color: #fff;
+	}
+	.header-gnb {
+		ul {
+			li {
+				color: #82888c;
+			}
+		}
+	}
+	.header-util {
+		ul {
+			li {
+				a {
+					color: rgba(130, 136, 140, .5);
+				}
+				&.header-util-request {
+					a {
+						border-color: rgba(130, 136, 140, .5);
+					}
+				}
+			}
+		}
+	}
+	.header-search {
+		a {
+			color: rgba(130, 136, 140, .5);
+		}
+	}
+}
+#header-mobile {
+	display: none;
+	align-items: center;
+	justify-content: space-around;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100px;
+	padding: 0 20px 0 25px;
+	background-color: #04151d;
+	opacity: 0.95;
+	h1 {
+		flex: 1;
+		a {
+			display: flex;
+			align-items: center;
+			width: 282px;
+			margin: 0 auto;
+		}
+		img {
+			width: 110%;
+			height: auto;
+		}
+	}
+}
+.header-mobile-menu {
+	position: relative;
+	> a {
+		color: rgba(255, 255, 255, .5);
+	}
+}
+.header-mobile-menu-list {
+	transition: transform .3s ease;
+	transform: translateX(-340px);
+	position: absolute;
+	top: 101px;
+	left: 0;
+	width: 340px;
+	padding: 0 0 10px 15px;
+	border-top: 4px solid #6abf4b;
+	background-color: #fff;
+	&.active {
+		transform: translateX(0);
+	}
+	> ul {
+		li {
+			&:last-child {
+				> a {
+					border-bottom: 0;
+				}
+			}
+			> a {
+				display: flex;
+				height: 45px;
+				padding-top: 12px;
+				font-family: 'Forza-Medium';
+				font-size: 15px;
+				color: #101820;
+				text-transform: uppercase;
+				border-bottom: 1px solid #e6e9ed;
+				.fas {
+					margin: 2px 0 0 5px;
+				}
+			}
+			&.active {
+				> a {
+					color: #101820;
+				}
+				dl {
+					display: block;
+				}
+			}
+			dl {
+				display: none;
+				padding-bottom: 10px;
+				margin-top: 15px;
+			}
+			dt {
+				position: relative;
+				padding-left: 20px;
+				margin-top: 10px;
+				margin-bottom: 5px;
+				font-family: 'Forza-Bold';
+				font-size: 15px;
+				color: #101820;
+				&:first-child {
+					margin-top: 0;
+				}
+				background: 0 50% no-repeat;
+				background-size: 15px auto;
+				&:nth-of-type(1) {
+					background-image: url('../images/icon-leaf-blue.svg');
+				}
+				&:nth-of-type(2) {
+					background-image: url('../images/icon-leaf-green.svg');
+				}
+				&:nth-of-type(3) {
+					background-image: url('../images/icon-leaf-black.svg');
+				}
+			}
+			dd {
+				padding: 0 0 4px 10px;
+				a {
+					font-family: 'Forza-Book';
+					font-size: 15px;
+					line-height: 1.3;
+					color: #54565a;
+				}
+			}
+		}
+	}
+	.header-mobile-request {
+		margin-top: 50px;
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 7px;
+			padding: 2px 9px 2px 10px;
+			width: 120px;
+			height: 27px;
+			font-family: 'Forza-Bold';
+			font-size: 12px;
+			color: #7c868c;
+			.button-border-gray();
+		}
+	}
+	.header-mobile-follow {
+		position: absolute;
+		bottom: 14px;
+		right: 12px;
+		h3 {
+			margin-bottom: 10px;
+			text-align: right;
+			font-family: 'Forza-Bold';
+			font-size: 12px;
+			color: #7c868c;
+		}
+		ul {
+			display: flex;
+			justify-content: flex-end;
+		}
+		li {
+			margin-left: 10px;
+			.fab {
+				font-size: 2em;
+				color: #7c868c;
+			}
+		}
+	}
+}
+.header-mobile-util {
+	display: flex;
+	align-items: center;
+	a {
+		color: rgba(255, 255, 255, .5);
+	}
+	&-request {
+		display: flex;
+		align-items: center;
+		height: 28px;
+		padding: 2px 9px 2px 10px;
+		margin-left: 20px;
+		font-family: 'Forza-Bold';
+		font-size: 11px;
+		color: rgba(255, 255, 255, .5);
+		border: 1px solid rgba(255, 255, 255, 0.7);
+		border-radius: 2px;
+	}
+}
+#footer {
+	position: relative;
+	z-index: 50;
+	padding: 35px;
+	background-color: #3368a8;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		opacity: .1;
+		background: url('../images/icon-purigen-system-white.svg') 100% 100% no-repeat;
+		background-size: contain;
+	}
+}
+.footer-logo {
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-bottom: 50px;
+	margin-top: 2px;
+	font-family: 'Forza-Bold';
+	font-size: 19px;
+	color: #fff;
+	img {
+		width: 40px;
+		height: auto;
+		margin-right: 15px;
+	}
+}
+.footer-menu {
+	position: relative;
+	display: flex;
+	max-width: 1320px;
+	margin-bottom: 130px;
+	dl {
+		flex: 1;
+	}
+	dt {
+		margin-bottom: 15px;
+		text-transform: uppercase;
+		font-family: 'Forza-Bold';
+		font-size: 14px;
+		color: #fff;
+	}
+	dd {
+		margin-bottom: 3px;
+		font-size: 14px;
+		a {
+			color: #fff;
+		}
+	}
+}
+.footer-newsletter {
+	position: relative;
+	margin-bottom: 70px;
+	h3 {
+		font-size: 16px;
+		font-family: 'Roboto-Bold';
+		color: #fff;
+	}
+	p {
+		margin-bottom: 15px;
+		font-size: 14px;
+		font-family: 'Roboto-Medium';
+		color: #fff;
+	}
+	&-field {
+		display: flex;
+		max-width: 636px;
+		align-items: center;
+		margin-bottom: 8px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		input {
+			flex: 1;
+			height: 48px;
+			padding: 0 10px;
+			margin-right: 8px;
+			font-size: 18px;
+			color: #adadad;
+			border: 0;
+			background-color: #fff;
+			&::-webkit-input-placeholder {
+				color: #adadad;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		button {
+			width: 159px;
+			height: 48px;
+			font-size: 15px;
+			font-family: 'Forza-Bold';
+			color: #fff;
+			border: 2px solid #fff;
+		}
+	}
+}
+.footer-follow {
+	position: absolute;
+	top: 320px;
+	right: 35px;
+	dl {
+		text-align: right;
+	}
+	dt {
+		margin-bottom: 10px;
+		font-size: 15px;
+		font-family: 'Forza-Bold';
+		color: #fff;
+	}
+	dd {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 15px;
+		a {
+			color: #fff;
+		}
+	}
+}
+.footer-info {
+	position: absolute;
+	top: 485px;
+	right: 35px;
+	text-align: right;
+	font-weight: 300;
+	img {
+		width: 335px;
+		height: 66px;
+	}
+}
+.footer-copyright {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	font-size: 13px;
+	line-height: 2;
+	p {
+		width: 100%;
+		color: rgba(255, 255, 255, 0.7);
+	}
+	ul {
+		display: flex;
+		align-items: center;
+	}
+	li {
+		position: relative;
+		padding-right: 20px;
+		margin-right: 17px;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto 0;
+			width: 3px;
+			height: 3px;
+			background-color: #fff;
+		}
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+		a {
+			color: #fff;
+		}
+		color: #fff;
+	}
+	address {
+		margin-top: 0;
+		font-size: 13px;
+		color: #fff;
+	}
+}
+.footer-contact {
+	display: none;
+	position: relative;
+	padding: 25px 0;
+	dl {
+		text-align: center;
+	}
+	dt {
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		font-family: 'Forza-Bold';
+		font-size: 13px;
+		color: #101820;
+	}
+	dd {
+		font-size: 17px;
+		color: #41a1d7;
+		&:last-child {
+			font-size: 13px;
+		}
+	}
+}
+#container {
+	position: relative;
+}
+#contents {
+	position: relative;
+	max-width: 1366px;
+	padding: 65px 45px 135px;
+	margin: 0 auto;
+	&.contents-blank {
+		background-color: #07090b;
+	}
+	&.contents-flex {
+		display: flex;
+	}
+	&.contents-pd0 {
+		max-width: 100% !important;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.none-visual {
+		padding-top: 180px;
+	}
+	&-aside {
+		width: 286px;
+		margin-right: 26px;
+	}
+	&-section {
+		flex: 1;
+	}
+}

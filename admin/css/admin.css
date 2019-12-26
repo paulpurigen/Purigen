@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+html,body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,a{margin:0;padding:0;-webkit-text-size-adjust:none}
+body,input,textarea,select,button,table{font:13px 'Roboto-Book', Sans-serif;line-height:1.2;color:#3a4044}
+img,fieldset,button{border:0}
+h1, h2, h3, h4, h5{font-weight:normal}
+button{cursor:pointer;background:none;outline:none;border:0}
+textarea{overflow:auto;vertical-align:top;resize:none;outline:none}
+input[type="text"], input[type="checkbox"], input[type="radio"]{vertical-align:top}
+input[type="text"]{color:#3a4044;outline:none}
+input[type="checkbox"]{width:12px;height:12px;margin:2px 0 4px}
+input[type="radio"]{width:13px;height:13px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+table th{font-weight:normal}
+img{vertical-align:top}
+ul,ol{list-style:none}
+strong{font-weight:normal}
+em,address,i{font-style:normal}
+a{text-decoration:none;cursor:pointer;color:#3a4044}
+a:hover,a:active,a:focus{text-decoration:none}
+hr,caption,legend{display:none}
+
+@font-face {
+  font-family: 'Roboto-Book';
+  src: url('../fonts/Roboto-Book.eot');
+  src: url('../fonts/Roboto-Book.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Book.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../fonts/Roboto-Light.eot');
+  src: url('../fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Light-It';
+  src: url('../fonts/Roboto-Light-It.eot');
+  src: url('../fonts/Roboto-Light-It.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Light-It.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('../fonts/Roboto-Medium.eot');
+  src: url('../fonts/Roboto-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../fonts/Roboto-Bold.eot');
+  src: url('../fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Book';
+  src: url('../fonts/Forza-Book.eot');
+  src: url('../fonts/Forza-Book.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Book.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Bold';
+  src: url('../fonts/Forza-Bold.eot');
+  src: url('../fonts/Forza-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Medium';
+  src: url('../fonts/Forza-Medium.eot');
+  src: url('../fonts/Forza-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Light';
+  src: url('../fonts/Forza-Light.eot');
+  src: url('../fonts/Forza-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Light.woff') format('woff');
+}
+
+input[type=text]{box-sizing:border-box;height:18px;padding:0 3px;border:1px solid #d4d4d4}
+textarea{box-sizing:border-box;height:179px;padding:3px;border:1px solid #737373;border-top:1px solid #737373}
+
+.bt{display:inline-block;vertical-align:top;height:25px;padding:0 15px;line-height:25px;text-align:center;border-radius:1px;text-transform:uppercase;font-family:'Forza-Medium';font-size:12px}
+.bt-narrow{height:25px;line-height:25px;font-size:13px}
+.bt-navy{color:#fff;background-color:#427cbf}
+.bt-navy:hover{color:#fff;background-color:#7d868c}
+.bt-gray{color:#fff;background-color:#7d868c}
+.bt-gray:hover{color:#fff;background-color:#b3c935}
+.bt-green{color:#fff;background-color:#6abf4b}
+.bt-green:hover{color:#fff;background-color:#7d868c}
+
+.l_clear:after{content:"";display:block;clear:both}
+
+#wrap{overflow:hidden;position:relative;min-width:900px}
+
+#header{position:relative;z-index:100;font-family:'Forza-Medium';text-transform:none}
+#header:after{content:"";position:absolute;bottom:-10px;left:0;width:100%}
+.header_top{position:relative;width:900px;height:135px;margin:0 auto}
+.header_top h1{position:absolute;top:36px;left:3px;width:263px;height:53px;text-indent:-10000px;background-image:url(../images/logo-purigen-main.svg);background-size:100%}
+.header_log{position:absolute;top:35px;right:0}
+.header_greeting{position:absolute;top:80px;right:0}
+.header_greeting strong{text-transform:uppercase;font-size:20px;margin-left:5px}
+.header_gnb{position:relative;background-color:#427cbf}
+.header_gnb_1depth{position:relative;z-index:10;width:900px;margin:auto}
+.header_gnb_1depth li{float:left;position:relative;width:160px;font-size:13px}
+.header_gnb_1depth li:first-child{width:160px}
+.header_gnb_1depth li:after{content:"";position:absolute;top:12px;left:0;width:1px;height:32px;background-color:rgba(153,153,153,.2)}
+.header_gnb_1depth li:first-child:after{display:none}
+.header_gnb_1depth li a{display:block;height:50px;width:160px;font-family:'Forza-Medium';font-size:13px;color:#fff;line-height:50px;text-align:center}
+.header_gnb_1depth li.is-active a, .header_gnb_1depth li:hover a{background-color:#274f7e}
+.header_gnb_1depth li.is-active + li:after, .header_gnb_1depth li:hover + li:after{display:none}
+.header_gnb_2depth{position:absolute;top:50px;left:0;width:100%;background-color:#f7f7f7}
+.header_gnb_2depth_inner{display:none;position:relative;box-sizing:border-box;width:900px;height:105px;padding-top:10px;margin:0 auto}
+.header_gnb_2depth-manage{left:53px}
+.header_gnb_2depth-form{left:310px}
+.header_gnb_2depth-resources{left:202px}
+.header_gnb_2depth-review{left:255px}
+.header_gnb_2depth-news{left:510px}
+.header_gnb_2depth-support{left:370px}
+.header_gnb_2depth-company{text-align:right;left:636px}
+.header_gnb_2depth_inner ul{float:left;width:165px;margin-left:10px}
+.header_gnb_2depth_inner ul:first-child{margin-left:0px;padding-top:7px}
+.header_gnb_2depth_inner li{margin-top:10px}
+.header_gnb_2depth_inner li:first-child{margin-top:0}
+.header_gnb_2depth_inner li a{display:block;font-family:'Forza-Book';font-size:13px;color:#101820}
+.header_gnb_2depth_inner li a:hover{color:#2f547e;box-shadow:inset 0 -1px #2f547e}
+
+#container{position:relative}
+
+#contents{position:relative;width:900px;padding:125px 0;margin:0 auto}
+#contents h2{margin-bottom:15px;font-size:26px;font-family:'Forza-Medium';color:#101820;text-transform:uppercase}
+#contents h3{margin-bottom:12px;font-size:15px;font-family:'Roboto-Book';color:#101820;text-transform:uppercase}
+
+.form_search{position:relative;margin-bottom:35px}
+.form_search input{width:366px;height:26px;border:2px solid #e1e1e1;border-radius:3px}
+.form_search .bt{position:relative;top:0;height:26px;margin-left:18px;line-height:26px;text-transform:uppercase}
+.form_search .add_new{position:absolute;top:85px;right:0}
+
+.data_filter{margin-bottom:25px}
+
+.board_list{margin-bottom:20px;border:1px solid #ccc}
+.board_list th{height:27px;padding:2px 9px 2px;text-align:left;line-height:28px;font-size:13px;font-family:'Forza-Medium';color:#101820;text-transform:uppercase;background-color:#f7f7f7}
+.board_list th a{color:#101820}
+.board_list td a{color:#0075c3}
+.board_list td a:hover{color:#ff2b00}
+.board_list td{padding:10px}
+.board_list td .ic{font-size:12px;color:#ff2b00}
+.board_list td li{margin-top:5px}
+.board_list td li:first-child{margin-top:0}
+.board_list tr:nth-child(even) td{background-color:#f9f9f9}
+
+.board_write{width:700px;margin-bottom:30px}
+.board_write th{text-align:left;font-family:'Roboto-Medium';text-transform:uppercase;font-size:13px;color:#101820}
+.board_write td{padding:10px 0}
+.board_write tr:first-child td{padding-top:0}
+
+.form_submit{width:525px;padding-left:175px}
+.form_submit .side a{margin-left:30px}
+.form_submit .side a:first-child{margin-left:0}
+.form_submit .side-left{float:left}
+.form_submit .side-right{float:right}
+
+.box_default{margin-bottom:20px;border:1px solid #ccc}
+.box_default .box_title{height:27px;padding:0 14px;line-height:27px;font-size:14px;font-family:'Roboto-Medium';color:#fff;text-transform:uppercase;box-shadow:inset 0 1px #456880;background-color:#0c3c61}
+
+.pagination{text-align:center}
+.pagination a{margin:0 3px;font-size:14px;color:#0075c3}
+.pagination a.is-active{color:#3a4044}
+
+.who_online{padding:30px 5px 10px;font-family:'Roboto-Medium'}
+.who_online p{margin-bottom:20px}
+.who_online ul{padding:0 5px;color:#0c3c61}
+.who_online li{margin-top:3px;padding-left:17px;color:#0075c3;background:url(../img/bu_list_dot.gif) 0 5px no-repeat}
+.who_online li:first-child{margin-top:0}
+
+.password_strength{position:absolute;top:0;left:250px;font-family:'Roboto-Medium'}
+.password_strength div{display:-webkit-box;width:220px;margin-top:5px;background-color:#c4c4c4}
+.password_strength div span{display:block;-webkit-box-flex:1;height:4px}
+
+.add_user_info{margin-bottom:15px}
+.add_user_info p{font-family:'Roboto-Book';margin-top:12px}
+.add_user_info p:first-child{margin-top:0}
+
+.add_field{position:relative;margin-bottom:20px}
+.add_field dt{font-size:13px;font-family:'Roboto-Medium';margin-bottom:3px}
+.add_field dt em{color:#ff394f}
+.add_field dd{margin-top:0;margin-bottom:7px}
+.add_field dd:nth-of-type(1){margin-top:3px;margin-bottom:7px}
+.add_field dd input{margin-right:5px;margin-top:2px;border-top:1px solid #999}
+.add_field p{margin-top:5px;font-family:'Roboto-Book';font-size:11px}
+
+.form_table_check{margin-top:10px}
+.form_table_check_inner{float:left;margin-left:40px}
+.form_table_check_inner:first-child{margin-left:0}
+.form_table_check h4{margin-bottom:15px;font-family:'Roboto-Medium'}
+.form_table_check ul{float:left}
+.form_table_check li{margin-top:8px}
+.form_table_check li:first-child{margin-top:0}
+.form_table_check li:hover{color:#b3c935}
+
+/*.admin_login{padding-top:115px;background:url(../img/visual-droplet.jpg) no-repeat}*/
+.admin_login{padding-top:115px;background:-webkit-gradient(linear,0 0,0 100%,from(#0e3556),to(#11233e));background: -moz-linear-gradient(top, #0e3556 0%, #11233e 100%)}
+.admin_login_inner{position:relative;width:255px;height:355px;padding:0 10px;margin:0 auto;background:url(../img/bg_login_drop.png) 100% 100% no-repeat}
+.admin_login_inner h1{width:254px;height:91px;margin-bottom:20px;text-indent:-10000px;background-image:url(../img/title_admin_login.png)}
+.form_admin_login{margin-bottom:23px}
+.form_admin_login input{box-sizing:border-box;width:100%;height:28px;padding:1px 10px 2px;font-size:13px;border-radius:3px;font-family:'Roboto-Book';color:#11233e}
+.submit_login{text-align:right}
+.submit_login .bt{width:84px;height:33px;line-height:33px;font-size:15px}
+.func_login{margin-top:25px}
+.func_login li{margin-top:15px}
+.func_login li:first-child{margin-top:30px}
+.func_login li a{color:#ebeced}
+.func_login li.find_pwd a{font-family:'Roboto-Book'}
+.func_login li.find_pwd a:hover{color:#DEDEDE}
+.func_login li.request_account a span{padding-right:4px;font-size:9px;color:#c4d600}
+.admin_login_copyright{width:255px;margin:0 auto;padding-top:10px;font-size:10px;color:#7d868c;font-family:'Roboto-Medium'}
+
+.ctrl_comments{border-top:1px solid #f9faf6}
+.comments_heading{display:table;width:100%;table-layout:fixed;height:40px}
+.comments_heading > div{display:table-cell;vertical-align:middle;padding:0 10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.comments_writer{width:20%;color:#3c93d2}
+.comments_mail{width:25%}
+.comments_co{width:25%}
+.comments_tel{width:20%}
+.comments_btn{width:10%;color:#3c93d2}
+.comments_btn a{color:#3c93d2}
+.comments_data{padding:10px;min-height:20px;background-color:#f4f4ee}
+.comment_reply{position:relative;padding:10px 10px 10px 70px}
+.comment_reply dt{padding-left:20px;margin-bottom:7px;color:#3c93d2;background:url(../img/bu-title_navy.gif) 0 2px no-repeat}
+.comment_reply dd{padding-left:20px}
+.comment_reply .reply_btn{position:absolute;top:10px;right:10px}
+.comment_reply .reply_btn a{color:#3c93d2}
+
+.layer_comment{position:absolute;top:0;left:0;z-index:9999;width:100%;height:100%;background-color:rgba(0,0,0,.4);display:none;}
+.layer_comment_write{position:fixed;left:50%;top:150px;width:50%;margin:0 0 0 -25%;background-color:#fff}
+.layer_comment_author{height:23px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:7px 10px 0;font-family:dinbold;background-color:#cbcbcb}
+.layer_comment_textarea{padding:10px}
+.layer_comment_textarea textarea{width:100%;height:200px;margin-bottom:10px;border:1px solid #dbdce0;box-sizing:border-box;padding:10px;font-size:12px;color:#898989}
+.layer_comment_textarea .comment_submit{text-align:right}
+.layer_comment_close{position:absolute;top:6px;right:10px;width:20px;height:18px;text-indent:-10000px;background:url(../img/bt_close_layer.gif);background-size:100% 100%}
+
+#address-box{position:relative}
+#getLatLng{position:absolute;right:11%;bottom:25%;padding:0 10px;height:20px;line-height:20px;font-size:11px}
+
+#body{height:700px;}
+
+.published{color:#53a330}
+.unpublished{color:#ab162f}
+
+#comments-list{margin:50px 0 7% 0;border-top:1px solid #eee;padding-top:25px}
+#comments-list h3{font-size:20px}
+#comments-list .comment-box{background:#f7f7f7;width:96%;padding:25px 2%;margin-top:20px;border-radius:1px;position:relative}
+#comments-list h6{font:16px 'Roboto-Medium';margin-bottom:10px}
+#comments-list h6 em{color:#0c3c61;font-family:'Roboto-Medium'}
+#comments-list .comment-tools{position:absolute;top:0;right:0;background:#fff;padding:10px 2%;border-top:1px solid #eee;border-right:1px solid #eee}
+#comments-list .under-review{float:left;margin-right:20px;color:#df792d;font-size:16px}
+#comments-list form{float:left;font-size:15px;margin-right:30px}
+#comments-list form:last-child{margin-right:0}
+#comments-list input[type="submit"]{border:0;background:transparent;cursor:pointer}
+#comments-list .edit-btn{color:#000;font-size:16px}
+#comments-list .del-btn{color:#ab162f;font-family:FontAwesome;font-size:18px;}
+#comments-list p{font-size:15px}
+
+#error-box{background:pink;padding:2% 0}
+#error-box p{font:16px/1 slatemed;margin:0 2%}
+
+#footer {
+  position: relative;
+  height: 180px;
+  padding-top: 120px;
+  text-align: center;
+  background: url('../images/icon-purigen-system-gray.png') 50% 0 no-repeat;
+}
+#footer .footer-copyright {
+  font-family: 'Roboto-Light';
+  font-size: 13px;
+  color: #adadad;
+}
+#footer .footer-copyright strong {
+  font-family: 'Roboto-Bold';
+}

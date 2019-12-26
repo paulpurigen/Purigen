@@ -1,0 +1,108 @@
+<?php
+// BODY:  display Most Popular Search table
+echo "<!-- Most popular search table -->\n";
+echo "<br>\n";
+echo "<div style='text-align:center;'>\n";
+echo "<div id='most_pop' class='tblhead cntr'>\n";
+echo "<p class='tblhead'>" . $sph_messages['mostpop'] . "</p>\n";
+
+echo "<table width='100%'>\n";
+
+echo "<tr class='tblhead'>\n";
+echo "<td>" . $sph_messages['query']     . "</td>\n";
+echo "<td>" . $sph_messages['count']     . "</td>\n";
+echo "<td>" . $sph_messages['results']   . "</td>\n";
+echo "<td>" . $sph_messages['lastquery'] . "</td>\n";
+echo "</tr>\n";
+
+$sql_query = "SELECT query, count(*) as c, date_format(max(time), '%Y-%m-%d %H:%i:%s'), avg(results), media from " . $mysql_table_prefix . "query_log group by query order by c desc LIMIT 50";
+$result = $db_con->query($sql_query);
+
+if ($debug && $db_con->errno)
+{
+   $err_row = __LINE__-2;
+   printf("<p><span class='red'>&nbsp;MySQL failure: %s&nbsp;\n<br></span></p>", $db_con->error);
+
+   if (__FUNCTION__)
+   {
+      printf("<p><span class='red'>&nbsp;Found in script: ".__FILE__."&nbsp;&nbsp;row: $err_row&nbsp;&nbsp;in function():&nbsp;".__FUNCTION__."&nbsp;<br></span></p>");
+   }
+   else
+   {
+      printf("<p><span class='red'>&nbsp;Found in script: ".__FILE__."&nbsp;&nbsp;row: $err_row&nbsp;<br></span></p>");
+   }
+
+   printf("<p><span class='red'>&nbsp;Script execution aborted.&nbsp;<br></span>");
+   printf("<p><strong>Invalid query string, which caused the SQL error:</strong></p>");
+   echo "<p> $sql_query </p>";
+   exit;
+}
+
+$i = 0;
+
+// just to start with anything
+$class  = "evrow";
+
+while ($i < $pop_rows && $row = $result->fetch_array(MYSQLI_NUM))
+{
+   $word   = $row[0];
+   $times  = $row[1];
+   $date   = $row[2];
+   $media  = $row[4];
+
+   $avg     = number_format($row[3], 0);
+   $word2   = str_replace("\"", "", $word);
+   $word1   = str_replace("'", "_--_", $word);     //  crypt the ' character
+   $word    = $db_con->real_escape_string($word);
+
+   if ($no_zeros == '0' || ($no_zeros == '1' && $avg))
+   {
+      // prepare a media search
+      if ($media)
+      {
+         $sql_query = "query_m=".$word."&submit=Media&amp;search=1&amp;media_only=0&amp;cat_sel0=&amp;cat_sel1=&amp;cat_sel2=&amp;cat_sel3=&amp;cat_sel4=&amp;type=and&amp;results=10&amp;db=0&amp;prefix=0";
+      }
+      // prepare a text search
+      else
+      {
+         $sql_query = "query_t=".$word."&submit=Text&amp;search=1&amp;media_only=0&amp;cat_sel0=&amp;cat_sel1=&amp;cat_sel2=&amp;cat_sel3=&amp;cat_sel4=&amp;type=and&amp;mark=blau+markiert&amp;results=10&amp;db=0&amp;prefix=0";
+      }
+
+      echo "<tr class='$class sml'>\n";
+      echo "<td>\n";
+      echo "<a href='$search_string?query_t=$word1"
+         . "&amp;search=1"
+         . "&amp;media_only=" . $row[4]
+         . "&amp;category=$category"
+         . "&amp;catid=$catid"
+         . "&amp;cat_sel0=$cat_sel0"
+         . "&amp;cat_sel0a=$cat_sel0a"
+         . "&amp;cat_sel1=$cat_sel1"
+         . "&amp;cat_sel2=$cat_sel2"
+         . "&amp;cat_sel3=$cat_sel3"
+         . "&amp;cat_sel4=$cat_sel4"
+         . "&amp;type=$type"
+         . "&amp;mark=$mark"
+         . "&amp;results=$results"
+         . "&amp;db=$db"
+         . "&amp;prefix=$prefix'>$word2</a></td>\n";
+
+      echo "<td class='cntr'>$times</td>\n";
+      echo "<td class='cntr'>$avg</td>\n";
+      echo "<td class='cntr'>$date</td>\n";
+      echo "</tr>\n";
+
+      $i++;
+
+      if ($class == "evrow")
+         $class = "odrow";
+      else
+         $class  = "evrow";
+   }
+}
+
+echo "</table>\n";
+echo "</div>\n";
+echo "</div>\n";
+//
+?>

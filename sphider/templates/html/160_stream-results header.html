@@ -1,0 +1,59 @@
+<?php
+// display table for stream results
+if ($template == 'Pure')
+{
+   echo "<!-- Table-header for audio and video stream result -->\n";
+   echo "<br>\n";
+   echo "<table width='94%' class='sml cntr'>\n";
+   echo "<tr>\n";
+   echo "<td class='tblhead left' width='15%'>";
+   echo "<a href='$search_string?search=$mode"
+      . "&amp;link=$url1"
+      . "&amp;query=$query"
+      . "&amp;media_type=$media_type"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;mark=$mark"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix'>"
+      . $sph_messages[$info2]
+      . "</a></td>\n";
+
+    echo "<td><strong>" . ($sph_messages[$info])      . "</strong></td>\n";
+    if ($index_id3 == 1)
+    {
+        echo "<td><strong>" . ($sph_messages['playTime']) . "</strong></td>\n";
+        echo "<td><strong>" . ($sph_messages['showEXIF']) . "</strong></td>\n";
+   }
+   echo "</tr>\n";
+}
+else
+{
+   echo "<!-- Table-header for audio and video stream result -->\n";
+   echo "<br>\n";
+   echo "<table width='94%' class='sml cntr'>\n";
+   echo "<tr>\n";
+   echo "<td class='tblhead left' width='15%'>";
+   echo "<a href='$search_string?search=$mode"
+      . "&amp;link=$url1"
+      . "&amp;query=$query"
+      . "&amp;media_type=$media_type"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;mark=$mark"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix' title='"
+      . $sph_messages[$info2]
+      . "'><img src='$src' border='0' alt='Media results'></a></td>\n";
+
+   echo "<td><strong>" . ($sph_messages[$info])      . "</strong></td>\n";
+    if ($index_id3 == 1)
+    {
+       echo "<td><strong>" . ($sph_messages['playTime']) . "</strong></td>\n";
+       echo "<td><strong>" . ($sph_messages['showEXIF']) . "</strong></td>\n";
+    }
+    echo "</tr>\n";
+
+}
+// end table header for stream results
+?>

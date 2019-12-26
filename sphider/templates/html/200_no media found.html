@@ -1,0 +1,18 @@
+<?php
+// display no media results found
+echo "<!-- Message: no media results found -->\n";
+echo "<br />\n";
+echo "<div id='result_header' class='mainlist'>\n";
+echo "<div class='warnadmin cntr'>$msg<br>\n";
+
+if ($category != '-1')
+   echo $sph_messages['catsearch'];
+
+echo "<span class='blue'>" . $row[0] . "</span>\n";
+echo "</div> <!-- warnadmin cntr -->\n";
+echo "<p>&nbsp;</p>\n";
+echo "</div> <!-- result_header -->\n";
+echo "<br />\n";
+echo "<p>&nbsp;</p><p>&nbsp;</p>\n";
+// end of message: no media results found
+?>

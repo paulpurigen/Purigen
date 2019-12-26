@@ -1,0 +1,111 @@
+<?php
+// display category tree
+
+echo "<!-- Category tree -->\n";
+echo "<div id='cat_tree'>\n";
+echo "<br>\n";
+echo "<p class='mainlist3'>";
+echo "<a href='$search_string?setcss1=$thestyle' title='" . $sph_messages['tipBackCat'] . "'>" . $sph_messages['Categories'] . "</a></p>\n";
+echo "<div class='odrow3'>\n";
+
+$acats = "";
+$i = 0;
+
+foreach ($cat_info['cat_tree'] as $_val)
+{
+   $i++;
+   $acats .= "<a href='?catid=" . $_val['category_id'] . "&amp;setcss1=$thestyle' title='" . $sph_messages['tipSelCat'] . "'>" . $_val['category'] . "</a> &raquo; ";
+
+   if ($i > 5)
+   {
+      $i = 0;
+      $acats = substr($acats,0,strlen($acats) - 9)."<br> &raquo; ";
+   }
+}
+
+$acats = substr($acats,0,strlen($acats) - 9);
+echo "<p class='title'>$acats></p>\n";
+echo "</div>\n";
+
+// list of sub-categories
+if ($cat_info['subcats'])
+{
+   echo "<p></p>\n";
+   echo "<div class='odrow3'>\n";
+
+   $bcats = "";
+
+   foreach ($cat_info['subcats'] as $_key => $_val)
+   {
+      $bcats .= "<a href='$search_string?catid="
+         . $_val['category_id']
+         . "&amp;setcss1=$thestyle' title='"
+         . $sph_messages['tipSelBCat']
+         . "'>"
+         . $_val['category']
+         . "</a> ("
+         . $_val['count'][0][0]
+         . ") &raquo; ";
+   }
+
+   $bcats = substr($bcats,0,strlen($bcats) - 9);
+
+   echo "<p class='title'>$bcats></p>\n";
+}
+else
+{
+   echo "</div>\n";
+}
+
+// if no site is attached to this cat
+if (!$cat_info['cat_sites'])
+{
+   echo "</div>\n";
+   echo "<br><br>\n";
+   echo "<p class='mainlist'>";
+   echo "<a href='$search_script' title='no sites'>" . $sph_messages['noSites'] . " <span class='warnadmin'>$catname</span><br><br>" . $sph_messages['tipBackCat'] . "</a></p>\n";
+}
+// list of web pages in current category
+else
+{
+   echo "<p class='mainlist3 sml'>" . $sph_messages['Web pages'] . "&nbsp;<span class='warnadmin'>$catname</span></p>\n";
+
+   $count = "0";
+   foreach ($cat_info['cat_sites'] as $_key => $_val)
+   {
+      if ($_key & 1)
+      {
+         echo "<div class='odrow3'>\n";
+      }
+      else
+      {
+         echo "<div class='evrow3'>\n";
+      }
+
+      $count = ($_key + 1);
+
+      echo "<table width='75%'>\n";
+      echo "<tr>\n";
+      echo "<td class='title left sml'>\n";
+      echo "&nbsp;&nbsp;$count. <a href='" . $_val['url'] . "'>" . $_val['title'] . "</a>\n";
+      echo "</td>\n";
+      echo "</tr>\n";
+      echo "<tr>\n";
+      echo "<td class='description left sml'>\n";
+      echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $_val['short_desc'] . "\n";
+      echo "</td>\n";
+      echo "</tr>\n";
+      echo "<tr>\n";
+      echo "<td class='url'>\n";
+      echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='" . $_val['url'] . "'>" . $_val['url'] . "</a>\n";
+      echo "</td>\n";
+      echo "</tr>\n";
+      echo "</table>\n";
+      echo "</div>\n";
+   }
+}
+
+echo "</body>\n";
+echo "</html>\n";
+// End of category tree
+?>

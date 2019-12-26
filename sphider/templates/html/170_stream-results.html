@@ -1,0 +1,24 @@
+<?php
+
+// display  audio and video results
+echo "<!-- Audio and video (stream) result -->\n";
+echo "<tr>\n";
+if (strpos($value[2], "watch?v=")) {
+    echo "<td>&nbsp;</td>\n";
+    echo "<td ><strong>Youtube video</strong><br /><br /><a href='$link_click' target='_blank' title='" . $sph_messages['openMedia'] . "'><strong>$title</strong></a><br /><br /></td>\n";
+} else {
+    echo "<td width='15%'>&nbsp;</td>\n";
+    echo "<td ><a href='$link_click' target='_blank' title='" . $sph_messages['openMedia'] . "'><strong>$title</strong></a></td>\n";
+
+}
+if ($index_id3 == 1)
+{
+    echo "<td>$playtime</td>\n";
+    echo "<td><a href='$include_dir/show_id3.php?media_id=" . $value[0]
+        . "&amp;db=$db"
+        . "&amp;prefix=$prefix' target='_blank'>"
+        . ($sph_messages['more']) . ' ' . ($sph_messages['details']) ."</a></td>\n";
+}
+echo "</tr>\n";
+// end  of audio and video results
+?>

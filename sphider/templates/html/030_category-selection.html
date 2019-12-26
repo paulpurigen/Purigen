@@ -1,0 +1,41 @@
+<?php
+// display main category selection
+echo "<!-- Category selection -->\n";
+echo "<div id='cat_sel'>\n";
+echo "<br>\n";
+echo "<p class='mainlist3'>" . $sph_messages['Categories'] . "</p>\n";
+
+foreach ($cat_info['main_list'] as $_key => $_val)
+{
+   if ($_key & 1)
+   {
+      echo "<div class='odrow3'>\n";
+   }
+   else
+   {
+      echo "<div class='evrow3'>\n";
+   }
+
+   echo "<a class='em' href='$search_string?catid=" . $_val['category_id'] . "&amp;category=" . $_val['category_id'] . "&amp;setcss1=$thestyle' title='" . $sph_messages['tipSelCat'] . "'>";
+   echo $_val['category'];
+   echo "</a>\n";
+
+   if (is_array($_val['sub']) && array_key_exists("0",$_val['sub']) )
+   {
+      $ccats = "";
+
+      foreach ($_val['sub'] as $__key => $__val)
+      {
+         $ccats .= "<a href='$search_string?catid=" . $__val['category_id'] . "&amp;category=" . $_val['category_id'] . "&amp;setcss1=$thestyle' title='" . $sph_messages['tipSelBCat'] . "'>" . $__val['category'] . "</a> &raquo;\n";
+      }
+
+      echo "    $ccats";
+   }
+
+   echo "</div>\n";
+}
+echo "</div>\n";
+echo "</body>\n";
+echo "</html>\n";
+// end main category selection
+?>

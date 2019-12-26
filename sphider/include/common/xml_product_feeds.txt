@@ -1,0 +1,69 @@
+//
+//	Definition of the tag attributes (names of tag <this_name>) to be indexed for XML product feeds.
+//	Add your individual tag attributes.
+//	Be aware that the tag attributes will be processed case sensitive
+//	Remove all not required tag names and their translations.
+//
+id, ID, product_id, produktid
+title, name, product_name, Name, produktnavn
+description, Bescheibung, beskrivelse
+link, URL, productUrl, URL Hersteller, billedurl
+link reseller, URL Wiederverkäufer, vareurl
+image_​​link, image, images, imageUrl, image_url, Big_Image
+availability, Verfügbarkeit, Lagerbestand, lagerantal
+price, Neupreis, nypris
+category, property, properties, merchant_category, Kategorie, kategorinavn
+brand, Marke
+gtin
+mpn
+condition, Konditonen
+adult
+multipack
+is_​​bundle
+age_​​group
+color
+gender
+material
+pattern
+size
+item_​​group
+shipping
+tax
+//
+//	finally some more individual tag attribute names
+//
+@attributes
+model_number
+shortDescription
+reseller, Wiederverkäufer, forhandler
+price used, Gebrauchtpreis, glpris
+price min., Mindestpreis, fragtomk
+delivery_cost
+previousPrice
+delivery_period, Lieferzeit
+currency, Währung
+warranty, Garantie
+inventory number
+TDCategoryID
+TDCategoryName
+merchantCategoryName
+shortDescription
+promoText
+program_id
+program_name, programName
+programLogoPath
+programId
+//properties
+model
+property
+fields
+Author
+Big_Image
+Thumb_Image
+Binding
+toplist_pos
+deeplink
+last_updated
+inStock
+stock_level
+variation, variations

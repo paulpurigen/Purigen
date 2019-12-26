@@ -1,0 +1,22 @@
+<?php
+// display header for all media results of a selected page
+if ($debug_user == '1')
+{
+   echo "    <small>Results from database $slv1 $slv2 $slv3 $slv4 $slv5</small>\n";
+   echo "<br>\n";
+}
+
+echo "<!-- Header for all media results of a selected page -->\n";
+echo "<div class='mainlist'>\n";
+echo "<a class='navdown' href='javascript:JumpBottom()' title='Jump to bottom of this page'>" . $sph_messages['down'] . "</a>\n";
+echo "<p class='cntr'>" . $sph_messages['allMedia'] . "<br><br></p>\n";
+echo "<div class='headline'>\n";
+echo "<p class='left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL:&nbsp;&nbsp;";
+echo "<a href='$url_click' title='" . $sph_messages['New_window'] . "' target='_blank'>$link<br></a></p>\n";
+echo "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $sph_messages['title'] . "&nbsp;&nbsp;";
+echo ($title) ? $title : $sph_messages['Untitled'];
+echo "</p>\n";
+echo "</div>\n";
+echo "</div>\n";
+// end header for all media results of a selected page
+?>

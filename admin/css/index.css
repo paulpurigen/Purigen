@@ -1,0 +1,510 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Book';
+  src: url('../fonts/Roboto-Book.eot');
+  src: url('../fonts/Roboto-Book.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Book.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../fonts/Roboto-Light.eot');
+  src: url('../fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Light-It';
+  src: url('../fonts/Roboto-Light-It.eot');
+  src: url('../fonts/Roboto-Light-It.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Light-It.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('../fonts/Roboto-Medium.eot');
+  src: url('../fonts/Roboto-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../fonts/Roboto-Bold.eot');
+  src: url('../fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Book';
+  src: url('../fonts/Forza-Book.eot');
+  src: url('../fonts/Forza-Book.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Book.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Bold';
+  src: url('../fonts/Forza-Bold.eot');
+  src: url('../fonts/Forza-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Medium';
+  src: url('../fonts/Forza-Medium.eot');
+  src: url('../fonts/Forza-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Forza-Light';
+  src: url('../fonts/Forza-Light.eot');
+  src: url('../fonts/Forza-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Forza-Light.woff') format('woff');
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+select,
+a {
+  margin: 0;
+  padding: 0;
+}
+body,
+input,
+textarea,
+select,
+button,
+table {
+  font-family: 'Roboto-Book', Sans-serif;
+  line-height: 1.5;
+  font-size: 14px;
+  color: #54565a;
+}
+body {
+  -webkit-text-size-adjust: none;
+}
+img,
+fieldset,
+button {
+  border: 0;
+}
+button {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: 0;
+}
+input,
+select,
+textarea {
+  outline: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: none;
+  outline: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+img {
+  vertical-align: top;
+}
+ul,
+ol {
+  list-style: none;
+}
+em,
+address {
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+  color: #54565a;
+}
+hr,
+caption,
+legend {
+  display: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+strong {
+  font-weight: normal;
+}
+strong {
+  font-weight: 700;
+}
+body,
+html,
+#wrap,
+#container {
+  height: 100%;
+}
+#wrap {
+  position: relative;
+}
+#container {
+  position: relative;
+  min-width: 1366px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#header {
+  position: relative;
+  z-index: 100;
+}
+#header .header-gnb {
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  height: 108px;
+  background-color: #54565a;
+  padding-left: 405px;
+}
+#header .header-gnb h1 {
+  position: absolute;
+  top: 30px;
+  left: 45px;
+  width: 255px;
+}
+#header .header-gnb ul {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  line-height: 1.3;
+}
+#header .header-gnb li {
+  position: relative;
+  padding-top: 2px;
+  height: 45px;
+  text-transform: uppercase;
+  padding-right: 47px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Roboto-Medium';
+  color: rgba(207, 212, 214, 0.75);
+}
+#header .header-gnb li:last-child {
+  margin-right: 0;
+}
+#header .header-gnb li a {
+  color: rgba(207, 212, 214, 0.75);
+}
+#header .header-gnb li i {
+  position: relative;
+  top: -2px;
+}
+#header .header-gnb li:hover,
+#header .header-gnb li.active {
+  color: #fff;
+}
+#header .header-gnb li:hover::after,
+#header .header-gnb li.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #427cbf;
+}
+#header .header-gnb-sub {
+  opacity: 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: -175px;
+  left: 0;
+  width: 100%;
+  height: 170px;
+  background: rgba(255, 255, 255, 0.95) url('../images/icon-purigen-light-gray.svg') 40px 32px no-repeat;
+  background-size: 100px 100px;
+}
+#header .header-gnb-sub.active {
+  opacity: 1;
+  top: 108px;
+}
+#header .header-gnb-sub-inner {
+  opacity: 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  display: flex;
+  padding: 30px 0 0;
+}
+#header .header-gnb-sub-inner.active {
+  opacity: 1;
+  top: 0;
+}
+#header .header-gnb-sub-inner:nth-child(1) {
+  left: 405px;
+}
+#header .header-gnb-sub-inner:nth-child(2) {
+  left: 523px;
+}
+#header .header-gnb-sub-inner:nth-child(3) {
+  left: 663px;
+}
+#header .header-gnb-sub-inner:nth-child(4) {
+  left: 833px;
+}
+#header .header-gnb-sub-inner:nth-child(5) {
+  left: 968px;
+}
+#header .header-gnb-sub-inner:nth-child(6) {
+  left: 1092px;
+}
+#header .header-gnb-sub-inner dl {
+  line-height: 1.5;
+  min-width: 235px;
+  margin-right: 15px;
+}
+#header .header-gnb-sub-inner dl:last-child {
+  margin-right: 0;
+}
+#header .header-gnb-sub-inner dt {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-family: 'Forza-Bold';
+  font-size: 15px;
+  color: #101820;
+  border-bottom: 1px solid rgba(171, 177, 181, 0.85);
+}
+#header .header-gnb-sub-inner dd {
+  margin-bottom: 0 !important;
+}
+#header .header-gnb-sub-inner dd.icon {
+  padding-left: 28px;
+  background: 0 50% no-repeat;
+  background-size: 15px auto;
+}
+#header .header-gnb-sub-inner dd.icon:nth-of-type(1) {
+  background-image: url('../images/icon-leaf-blue.svg');
+}
+#header .header-gnb-sub-inner dd.icon:nth-of-type(2) {
+  background-image: url('../images/icon-leaf-green.svg');
+}
+#header .header-gnb-sub-inner dd.icon:nth-of-type(3) {
+  background-image: url('../images/icon-leaf-black.svg');
+}
+#header .header-gnb-sub-inner dd a {
+  font-family: 'Forza-Book';
+  font-size: 15px;
+  color: #32383e;
+  line-height: 1.9;
+}
+#header .header-log {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  font-family: 'Forza-Light';
+  font-size: 15px;
+  color: #ffffff;
+}
+#header .header-log strong {
+  font-family: 'Forza-Bold';
+}
+#contents {
+  flex: 1;
+  padding: 70px 50px 40px;
+}
+#footer {
+  position: relative;
+  height: 180px;
+  padding-top: 120px;
+  text-align: center;
+  background: url('../images/icon-purigen-system-gray.png') 50% 0 no-repeat;
+}
+#footer .footer-copyright {
+  font-family: 'Roboto-Light';
+  font-size: 13px;
+  color: #adadad;
+}
+#footer .footer-copyright strong {
+  font-family: 'Roboto-Bold';
+}
+.login {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #3368a8;
+}
+.login::before {
+  content: '';
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1141px;
+  height: 941px;
+  margin: auto;
+  background: url('../images/icon-purigen-system-white.svg') 50% 50% no-repeat;
+}
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.login h1 {
+  position: relative;
+  width: 337px;
+  padding-top: 145px;
+  margin-bottom: 75px;
+  background: url('../images/icon-purigen-green.png') 50% 0 no-repeat;
+}
+.login h2 {
+  margin-bottom: 20px;
+  font-family: 'Forza-Medium';
+  font-size: 20px;
+  color: #6dbe4b;
+}
+.login-field {
+  width: 300px;
+  margin-bottom: 40px;
+}
+.login-field input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #adadad;
+  background-color: #fff;
+}
+.login-field input::-webkit-input-placeholder {
+  color: #adadad;
+}
+.login-field input:last-child {
+  margin-bottom: 0;
+}
+.login-submit button {
+  width: 150px;
+  height: 40px;
+  font-family: 'Forza-Medium';
+  font-size: 16px;
+  padding: 2px 0 0;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.3), inset -1px -1px rgba(255, 255, 255, 0.3);
+}
+.login-copyright {
+  margin-top: 90px;
+  font-family: 'Roboto-Light';
+  font-size: 14px;
+  color: #fff;
+}
+.login-copyright strong {
+  font-family: 'Roboto-Bold';
+}
+.contents-title {
+  position: relative;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.contents-title h2 {
+  font-family: 'Forza-Bold';
+  font-size: 26px;
+  color: #101820;
+}
+.input-field {
+  position: relative;
+}
+.input-field-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.input-field-row:last-child {
+  margin-bottom: 0;
+}
+.input-field label {
+  width: 200px;
+  text-transform: uppercase;
+  font-family: 'Roboto-Bold';
+  font-size: 16px;
+  color: rgba(84, 86, 90, 0.75);
+}
+.input-field input[type='text'],
+.input-field input[type='password'] {
+  width: 272px;
+  height: 33px;
+  padding: 0 10px;
+  border: 1px solid #a2a9ad;
+}
+.button-area {
+  display: flex;
+  justify-content: center;
+}
+.button-area .button {
+  min-width: 112px;
+  height: 34px;
+  margin-right: 37px;
+  font-family: 'Forza-Bold';
+  font-size: 14px;
+  color: #fff;
+  background-color: #000000;
+}
+.button-area .button:last-child {
+  margin-right: 0;
+}
+.button-area .button-primary {
+  background-color: #3a7bc8;
+}

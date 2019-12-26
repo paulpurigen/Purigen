@@ -1,0 +1,33 @@
+<?php
+// BODY:  display header for media-only results
+if (strlen($query) < $min_word_length){
+$ignore_msg = str_replace ('%ignored_words', "<span class='warnadmin'>$query</span>\r\n", $sph_messages["ignoredWords"]);
+echo "<!-- Break, no media-only result -->\n";
+echo "<br />\n";
+echo "<div id='ignored' class='tblhead cntr'>$ignore_msg</div>\n";
+echo "<br /><br />\n";
+return;
+}
+echo "<br />\n";
+echo "<!-- Header for media-only result -->\n";
+echo "<div class='mainlist'>\n";
+echo "<span>" . $sph_messages['MediaHeader'] . "</span>\n";
+echo "<br>\n";
+echo "<span class='sml'>$result</span>\n";
+
+if ($category )
+{
+   echo "<p class='headline cntr sml'>" . $sph_messages['catsearch'] . " ";
+   echo "<span class='warnadmin'>" . $row['category'] . "</span>\n";
+   echo "</p>\n";
+}
+
+echo "<br />\n";
+echo "<table width='100%'>\n";
+echo "<tr>\n";
+echo "<td class='tblhead' width='30%'>" . $sph_messages['media'] . "</td>\n";
+echo "<td class='tblhead'>" . $sph_messages['details'] . "</td>\n";
+echo "</tr>\n";
+echo "<!-- Media-only result listing -->\n";
+// end header for media-only results
+?>

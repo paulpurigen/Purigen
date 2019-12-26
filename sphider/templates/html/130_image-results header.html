@@ -1,0 +1,57 @@
+<?php   // display table header for image results
+if ($template == 'Pure')
+{
+   echo "<!-- Table-header for image result -->\n";
+   echo "<table width='94%' class='cntr'>\n";
+   echo "<tr class='sml'>\n";
+   
+   echo "<td class='tblhead left' width='25%'>";
+   echo "<a href='$search_string?search=$mode"
+      . "&amp;link=$url"
+      . "&amp;query=$query"
+      . "&amp;media_type=$media_type"
+      . "&amp;title=$title1"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;mark=$mark"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix'>"
+      . $sph_messages[$info2]
+      . "</a></td>\n";
+      
+   echo "<td width='25'>&nbsp;</td>\n";
+   echo "<td width='25'>&nbsp;</td>\n";
+   echo "<td width='25'>&nbsp;</td>\n";                    
+   echo "</tr>\n";
+   echo "<!-- Image result listing -->\n";
+   echo "<tr>\n";
+}
+else
+{
+   echo "<!-- Table-header for image result -->\n";
+   echo "<table width='94%' class='cntr'>\n";
+   echo "<tr class='sml'>\n";
+   
+   echo "<td class='tblhead left' width='25%'>";
+   echo "<a href='$search_string?search=$mode"
+      . "&amp;link=$url"
+      . "&amp;query=$query"
+      . "&amp;media_type=$media_type"
+      . "&amp;title=$title1"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;mark=$mark"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix' title='"
+      . $sph_messages[$info2]
+      . "'><img src='$image_dir/$thumb' border='0' alt='image results'></a></td>\n";
+      
+   echo "<td width='25'><strong>" . ($sph_messages['foundImages']) . "</strong></td>\n";
+   echo "<td width='25'>&nbsp;</td>\n";
+   echo "<td width='25'>&nbsp;</td>\n";                    
+   echo "</tr>\n";
+   echo "<!-- Image result listing -->\n";
+   echo "<tr>\n";
+}
+// end header for image results
+?>

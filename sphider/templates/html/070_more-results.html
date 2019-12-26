@@ -1,0 +1,101 @@
+<?php
+
+// if activated, prepare JSON and XML result files
+//  used here only for media search in combined search form
+if ($out == 'xml' && $smt_button != $sph_messages['t_search']) {
+   media_xml($media_results, count($media_results), $query, round(getmicrotime() - $start_all, 3));
+}
+
+echo "<!-- Links to more-results -->\n";
+echo "<div id='more_results' class='mainlist'>\n";
+
+echo "    " . $sph_messages["Result page"] .":";
+
+// if we do have more than 1 result page
+if ($start > 1)
+{
+   echo "<a href='$search_string?query_t="
+      . (addmarks($query))
+      . "&amp;search=1"
+      . "&amp;media_only=$media_only"
+      . "&amp;smt_button=$smt_button"
+      . "&amp;up_advanced=$up_advanced"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;cat_sel0=$cat_sel0"
+      . "&amp;cat_sel1=$cat_sel1"
+      . "&amp;cat_sel2=$cat_sel2"
+      . "&amp;cat_sel3=$cat_sel3"
+      . "&amp;cat_sel4=$cat_sel4"
+      . "&amp;type=$type"
+      . "&amp;mark=$mark"
+      . "&amp;results=$results_per_page"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix"
+      . "&amp;domain=$domain"
+      . "&amp;adv_qry=$adv_qry"
+      . "&amp;start=$prev'>"
+      . $sph_messages['Previous']
+      ."</a>\n";
+}
+
+foreach ($other_pages as $page_num)
+{
+   if ($page_num != $start)
+   {
+      echo "<a href='$search_string?query_t="
+      . (addmarks($query))
+      . "&amp;search=1"
+      . "&amp;media_only=$media_only"
+      . "&amp;smt_button=$smt_button"
+      . "&amp;up_advanced=$up_advanced"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;cat_sel0=$cat_sel0"
+      . "&amp;cat_sel1=$cat_sel1"
+      . "&amp;cat_sel2=$cat_sel2"
+      . "&amp;cat_sel3=$cat_sel3"
+      . "&amp;cat_sel4=$cat_sel4"
+      . "&amp;type=$type"
+      . "&amp;mark=$mark"
+      . "&amp;results=$results_per_page"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix"
+      . "&amp;domain=$domain"
+      . "&amp;adv_qry=$adv_qry"
+      . "&amp;start=$page_num'>$page_num</a>\n";
+   }
+   else
+   {
+      echo "<strong>$page_num</strong>\n";
+   }
+}
+
+if ($next <= $pages)
+{
+   echo "<a href='$search_string?query_t="
+      . (addmarks($query))
+      . "&amp;search=1"
+      . "&amp;media_only=$media_only"
+      . "&amp;smt_button=$smt_button"
+      . "&amp;up_advanced=$up_advanced"
+      . "&amp;category=$category"
+      . "&amp;catid=$catid"
+      . "&amp;cat_sel0=$cat_sel0"
+      . "&amp;cat_sel1=$cat_sel1"
+      . "&amp;cat_sel2=$cat_sel2"
+      . "&amp;cat_sel3=$cat_sel3"
+      . "&amp;cat_sel4=$cat_sel4"
+      . "&amp;type=$type"
+      . "&amp;mark=$mark"
+      . "&amp;results=$results_per_page"
+      . "&amp;db=$db"
+      . "&amp;prefix=$prefix"
+      . "&amp;domain=$domain"
+      . "&amp;adv_qry=$adv_qry"
+      . "&amp;start=$next'>"
+      . $sph_messages['Next']
+      . "</a>\n";
+}
+echo "</div>\n";
+?>

@@ -1,0 +1,176 @@
+# Prevent the viewing of .htaccess and php.ini. Add the following to .htaccess
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+<Files php.ini>
+order allow,deny
+deny from all
+</Files>
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^purigenbio.com [NC]
+RewriteRule ^(.*)$ https://www.purigenbio.com/$1 [L,R=301]
+
+RewriteEngine on
+
+# Redirection for non-www to www
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirection for index.php to homepage
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^index.php/?$ https://www.purigenbio.com [R=301,L]
+
+RewriteRule ^/the-problem/?$ https://www.purigenbio.com/technology/isotachophoresis.php [QSA,L]
+RewriteRule ^/the-solution/?$ https://www.purigenbio.com/technology/isotachophoresis.php [QSA,L]
+RewriteRule ^/news-and-events/?$ https://www.purigenbio.com/news-events/news/list.php [QSA,L]
+RewriteRule ^/news-and-events/purigen-biosystems-raises-26-4-million-series-b-financing-accelerate-commercialization-automated-sample-preparation-platform/?$ https://www.purigenbio.com/news-events/news/view?pkid=7 [QSA,L]
+RewriteRule ^/news-and-events/purigen-biosystems-appoints-life-science-industry-veteran-barney-saunders-phd-chief-executive-officer/?$ https://www.purigenbio.com/news-events/news/view?pkid=6 [QSA,L]
+RewriteRule ^/news-and-events/purigen-biosystems-receives-18-2m-in-series-a-financing-led-by-5am-ventures-and-roche-venture-fund/?$ https://www.purigenbio.com/news-events/news/view?pkid=5 [QSA,L]
+
+# Redirects .php extension to no extension
+#	Grab every URL
+	RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php
+	
+#	Exceptions:
+	RewriteCond %{REQUEST_URI} !^/enews/(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)proc(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)rss(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)/(.*)proc(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)/(.*)/(.*)proc(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)/(.*)/(.*)Proc(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)/(.*)/(.*)/(.*)proc(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)/(.*)/(.*)/(.*)/(.*)proc(.*)$
+	RewriteCond %{REQUEST_URI} !^(.*)/(.*)/(.*)/(.*)/(.*)/(.*)proc(.*)$
+	RewriteCond %{REQUEST_URI} !^/admin/(.*)$
+	RewriteCond %{REQUEST_URI} !^/sphider/(.*)$
+	RewriteCond %{REQUEST_URI} !^/autho/(.*)$
+	RewriteCond %{REQUEST_URI} !^/inc/lib/(.*)$
+	RewriteCond %{REQUEST_URI} !^/review/(.*)$
+	RewriteCond %{REQUEST_URI} !^/calendar/(.*)$
+	#RewriteCond %{REQUEST_URI} !^/weblogCms/(.*)$
+	
+#	Redirect
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^/?(.*)\.php$ /$1 [L,R=301]
+
+#Removes .php extension from URLs **AND** 
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?(.*)$ /$1.php [L]
+
+# Caching - Currently 1 week
+<FilesMatch ".(css|gif|jpg|jpeg|png|mp4|pdf|js|ico|woff)$">
+Header set Cache-Control "max-age=604800"
+</FilesMatch>
+
+# 301 Redirects
+
+# Redirect 404 Page to Custom
+ErrorDocument 404 /404
+ErrorDocument 403 /404
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css text/javascript application/javascript
+</IfModule>
+
+#### Anti XSS protection ####
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [OR]
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} (\<|%3C).*iframe.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(.*)$ 404.php [F,L]
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule .* – [F]
+
+#### Anti cross site tracing – protection ####
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^TRACE
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule .* – [F]
+
+# Prevent use of specified methods in HTTP Request 
+RewriteCond %{REQUEST_METHOD} ^(HEAD|TRACE|DELETE|TRACK) [NC,OR] 
+# Block out use of illegal or unsafe characters in the HTTP Request 
+RewriteCond %{THE_REQUEST} ^.*(\\r|\\n|%0A|%0D).* [NC,OR] 
+# Block out use of illegal or unsafe characters in the Referer Variable of the HTTP Request 
+RewriteCond %{HTTP_REFERER} ^(.*)(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR] 
+# Block out use of illegal or unsafe characters in any cookie associated with the HTTP Request 
+##RewriteCond %{HTTP_COOKIE} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR] 
+# Block out use of illegal characters in URI or use of malformed URI 
+RewriteCond %{REQUEST_URI} ^/(,|;|:|<|>|">|"<|/|\\\.\.\\).{0,9999}.* [NC,OR] 
+# Block out  use of empty User Agent Strings
+# NOTE - disable this rule if your site is integrated with Payment Gateways such as PayPal 
+RewriteCond %{HTTP_USER_AGENT} ^$ [OR] 
+# Block out  use of illegal or unsafe characters in the User Agent variable 
+RewriteCond %{HTTP_USER_AGENT} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR] 
+# Measures to block out  SQL injection attacks 
+RewriteCond %{QUERY_STRING} ^.*(;|<|>|'|"|\)|%0A|%0D|%22|%27|%3C|%3E|%00).*(/\*|union|select|insert|cast|set|declare|drop|update|md5|benchmark).* [NC,OR] 
+# Block out  reference to localhost/loopback/127.0.0.1 in the Query String 
+RewriteCond %{QUERY_STRING} ^.*(localhost|loopback|127\.0\.0\.1).* [NC,OR] 
+# Block out  use of illegal or unsafe characters in the Query String variable 
+RewriteCond %{QUERY_STRING} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC]
+
+########## Begin - File injection protection, by SigSiu.net
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule .* - [F]
+########## End - File injection protection
+
+#proc/self/environ? no way!
+RewriteCond %{QUERY_STRING} proc\/self\/environ [NC,OR]
+
+# Don't allow any pages to be framed - Defends against CSRF
+Header set X-Frame-Options DENY
+RewriteCond %{HTTP_HOST} ^purigenbio.com$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "http\:\/\/www\.purigenbis\.com\/" [R=301,L]
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php5_module>
+   php_flag asp_tags Off
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 1024M
+   php_value post_max_size 8M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php56"
+   php_value upload_max_filesize 8M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+AddHandler application/x-httpd-recommended-php .php .php5 .php4 .php3

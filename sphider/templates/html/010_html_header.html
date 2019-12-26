@@ -1,0 +1,120 @@
+<?php
+
+echo "<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=\"UTF-8\" />
+";
+// title
+$buf = $mytitle;
+
+if ($start < '2')
+   $start = '1';
+
+if ($catid && is_numeric($catid))
+   $buf .= $cattree;
+
+if ($query !='')
+   $buf .= " " . $sph_messages['resultsFor'] . " '$query'. " . $sph_messages['Result page'] . ": $start";
+
+echo "  <title>$buf</title>\n";
+// meta data
+echo "  <meta charset='UTF-8'>\n";
+echo "  <meta name='public' content='all'>\n";
+echo "	<meta http-equiv='cache-control' content='no-cache, no-store, must-revalidate'/>\n";
+echo "	<meta http-equiv='pragma' content='no-cache'/>\n";
+echo "	<meta http-equiv='expires' content='0'/>\n";
+echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n";
+echo "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/> \n";
+$buf = ($start > 1 && $start) ? "noindex" : "index";
+echo"  <meta name='robots' content='$buf, follow'>\n";
+echo "  <link href='$template_url/html/sphider-plus.ico' rel='shortcut icon' type='image/x-icon' />\n";
+echo "  <link rel='stylesheet' href='$template_url/$template/userstyle.css' type='text/css'>\n";
+echo "
+  <!-- Suggest script -->\n";
+//  ATTENTION:  The stupid JavaScript does not accept     &amp;    as separator between variables
+//  Obligatory a simple   &    needs to be used
+echo "  <link rel='stylesheet' href='$template_url/$template/jquery-ui-1.10.2.custom.css' type='text/css'>
+<script src='include/jQuery/jquery-3.3.1.min.js'></script>
+<script src='include/jQuery/jquery-migrate-3.0.1.min.js'></script>
+<script src='include/jQuery/jquery-ui-1.11.4.js'></script>\n";
+if ($smt_button == $sph_messages['m_search'] && $sep_media != 1) {
+echo "  <script>
+        $(function() {
+            $(\"#query_t\").autocomplete({
+                source: \"include/suggest.php?m_only=1&type=$type&catid=$catid&category=$category&db=$db&prefix=$prefix\",
+                minLength: $min_sug_chars,
+                select: function(event, ui) {
+                    var item = ui.item;
+                    console.log(item,ui)
+                    if(item) {
+                        $(this).val(item.value);
+                        $(this.form).submit();
+                    }
+                }
+            })
+        })
+  </script>\n";
+} else {
+echo "  <script>
+        $(function() {
+            $(\"#query_t\").autocomplete({
+                source: \"include/suggest.php?m_only=0&type=$type&catid=$catid&category=$category&db=$db&prefix=$prefix\",
+                minLength: $min_sug_chars,
+                select: function(event, ui) {
+                    var item = ui.item;
+                    console.log(item,ui)
+                    if(item) {
+                        $(this).val(item.value);
+                        $(this.form).submit();
+                    }
+                }
+            })
+        })
+  </script>\n";
+
+echo "  <script>
+        $(function() {
+            $(\"#query_m\").autocomplete({
+                source: \"include/suggest.php?m_only=1&type=$type&catid=$catid&category=$category&db=$db&prefix=$prefix\",
+                minLength: $min_sug_chars,
+                select: function(event, ui) {
+                    var item = ui.item;
+                    console.log(item,ui)
+                    if(item) {
+                        $(this).val(item.value);
+                        $(this.form).submit();
+                    }
+                }
+            })
+        })
+  </script>\n";
+}
+
+echo "
+  <!-- 'Jump to page bottom' script -->\n";
+echo "  <script type='text/javascript'>
+       function JumpBottom(){
+          window.scrollTo(0,100000);
+       }
+  </script>\n";
+echo "
+  <!-- 'Jump to page top' script -->\n";
+echo "  <script type='text/javascript'>
+        function JumpUp(){
+            window.scrollTo(0,-100000);
+        }
+  </script>\n";
+if ($block_context == 1) {
+echo "
+  <!-- prevent usage of browser's context menu -->\n";
+echo "  <script type='text/javascript'>
+        window.oncontextmenu = function() {
+            return false;
+        };
+  </script>\n";
+}
+echo "</head>\n";
+echo "<body>\n";
+
+?>

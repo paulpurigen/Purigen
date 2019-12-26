@@ -1,0 +1,145 @@
+<?php
+// display result header
+
+echo "<!-- Result-header -->\n";
+
+// show databases that delivered results
+if ($debug_user == '1')
+{
+   echo "<small>Results from database $slv1 $slv2 $slv3 $slv4 $slv5</small>\n";
+
+   if ($prefix > '0')
+   {
+      echo "<small>table prefix: $prefix></small>\n";
+   }
+
+   if (!$one_word || !$mustbe_and)
+   {
+      echo "<br>\n";
+   }
+
+   if ($one_word)
+   {
+      echo "<small><span class='red'>Info:</span> Automatically reset to single word query for this search mode.</small>\n";
+   }
+
+   if ($mustbe_and)
+   {
+      echo "<small><span class='red'>Info:</span> Automatically reset to AND for this search mode.</small>\n";
+   }
+
+   if ($nostalgic_phrase =='1' )
+   {
+      echo "<small><span class='red'>Info:</span>Sphider-plus does not require quotation marks for phrase search.<br>\n";
+      echo "Just activate the checkbox '" . $sph_messages['phraseSearch'] . "' in the Search Form and enter the phrase you want to search for.</small>\n";
+   }
+}
+
+// show words that were ignored for this search
+if ($text_results['ignore_words'] && $type !='phrase')
+{
+   $ignore_msg = str_replace('%ignored_words', "<span class='warnadmin'>$ignored</span>\r\n", $sph_messages["ignoredWords"]);
+
+   echo "<div id='ignored' class='tblhead cntr'>$ignore_msg</div>\n";
+}
+
+echo "<br>\n";
+echo "<div id='result_header' class='mainlist'>\n";
+
+if ($total_results != 0 && $from <= $to && $template != "Pure")
+{
+   echo "<p class='cntr'>\n";
+   echo "<a class='navdown' href='javascript:JumpBottom()' title='Jump to bottom of this page'>";
+   echo $sph_messages['down'];
+   echo "</a>\n";
+   echo "</p>\n";
+}
+
+// if no result was found
+if ($text_results['total_results'] == 0)
+{
+   echo "<div class='warnadmin cntr'>\n";
+   echo "    $no_res\r\n<br>\n";
+   echo "    $catsearch <span class='blue'>$catname</span>\n";
+   echo "</div>\n";
+}
+
+// if Sphider-plus found a suggestion
+if ($text_results['did_you_mean'] && $text_results['total_results'] == '')
+{
+   $did_you_mean  = "  " . $sph_messages['DidYouMean'] . ": ";
+   $did_you_mean .= "<a href='$search_string?query=" . (addmarks($text_results['did_you_mean']));
+   $did_you_mean .= "&amp;search=1";
+   $did_you_mean .= "&amp;type=$type_rem";
+   $did_you_mean .= "&amp;results=$result_rem";
+   $did_you_mean .= "&amp;mark=$mark_rem";
+   $did_you_mean .= "&amp;category=$cat_rem";
+   $did_you_mean .= "&amp;catid=$catid_rem";
+   $did_you_mean .= "&amp;db=$db";
+   $did_you_mean .= "&amp;prefix=$prefix'>";
+   $did_you_mean .= $text_results['did_you_mean_b'] . "</a>?";
+
+   echo "<div id='didumean'>    $did_you_mean\r\n";
+   echo "</div>\n";
+}
+
+if ($text_results['total_results'] != '')
+{
+   echo "<span>$result</span><br>\n";
+   
+   if ($show_sort == '1' && $wildcount != '1')
+   {
+      echo "        <span>$res_order $this_list</span>\n";
+   }
+
+   echo "</div>\n";
+   
+   echo "<!-- Links to more-results -->\n";
+   echo "<div id='other_pages' class='tblhead'>\n";
+   echo "    " . $sph_messages["Result page"] . ": ";
+
+   // if we do have more than 1 result page
+   if ($start > 1)
+   {
+      echo "<a href='$search_string?query=" . (addmarks($query)) 
+         . "&amp;start=$prev"
+         . "&amp;search=1"
+         . "&amp;category=$category"
+         . "&amp;catid=$catid"
+         . "&amp;mark=$mark"
+         . "&amp;results=" . $results_per_page . $type_qry . $adv_qry 
+         . "&amp;db=$db"
+         . "&amp;prefix=$prefix"
+         . "&amp;domain=$domain'>" 
+         . $sph_messages['Previous'] . "</a>\n";
+   }
+
+   foreach ($other_pages as $page_num)
+   {
+      if ($page_num != $start)
+      {
+         echo "<a href='$search_string?query=" . (addmarks($query)) . "&amp;start=$page_num&amp;search=1&amp;category=$category&amp;catid=$catid&amp;mark=$mark&amp;results=" . $results_per_page . $type_qry . $adv_qry ."&amp;db=$db&amp;prefix=$prefix&amp;domain=$domain'>$page_num</a>\n";
+      }
+      else
+      {
+         echo "<strong>$page_num</strong>\n";
+      }
+   }
+   
+   if ($next <= $pages)
+   {
+      echo "<a href='$search_string?query=" . (addmarks($query)) . "&amp;start=$next&amp;search=1&amp;category=$category&amp;catid=$catid&amp;mark=$mark&amp;results=" . $results_per_page . $type_qry . $adv_qry . "&amp;db=$db&amp;prefix=$prefix&amp;domain=$domain'>" . $sph_messages['Next'] . "</a>\n";
+   }
+
+   echo "</div> <!-- other_pages -->\n";
+
+   echo "<!-- Start result listing -->\n";
+   echo "<div id='results'>\n";
+}
+else
+{
+   echo "</div>\n";
+   echo "<p class='y5'></p>\n";
+}
+// end result header
+?>
