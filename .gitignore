@@ -44,7 +44,7 @@ cmake-build-*/
 
 # File-based project format
 *.iws
-
+.env
 # IntelliJ
 out/
 
@@ -74,7 +74,5 @@ php_errorlog
 /phpmyadmin
 /videos
 /google*
-/images/*
-!/images/common
 /files
 /media
