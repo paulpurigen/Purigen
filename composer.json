@@ -1,0 +1,13 @@
+{
+    "name": "purigen/biosystem",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=7.1",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "config": {
+        "process-timeout": 1800
+    }
+}
+

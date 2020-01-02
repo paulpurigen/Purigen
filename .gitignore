@@ -71,8 +71,11 @@ fabric.properties
 create.sql
 .well-known
 php_errorlog
+sphider/admin/log/
 /phpmyadmin
 /videos
 /google*
 /files
 /media
+/vendor
+/composer.lock
