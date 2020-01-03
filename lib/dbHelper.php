@@ -1,12 +1,6 @@
 <?php
 class dbHelper
 {
-    private $dbHost = "localhost";
-    private $dbUser = "ur3wp2me5ykjy";
-    private $dbPassword = "9ur163n!!";
-    private $dbName = "dbwmarbz79rk3b";
-    private $OK = false;
-
     private $dbCon;
 
     private function throwException($query = null)
@@ -19,8 +13,8 @@ class dbHelper
     {
         try
         {
-            $this->dbCon = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPassword) or die($this->throwException("dbOpen"));
-            mysqli_select_db($this->dbCon, $this->dbName);
+            $this->dbCon = mysqli_connect(getenv('DB_HOST'), getenv('DB_USERNAME'), getenv('DB_PASSWORD')) or die($this->throwException("dbOpen"));
+            mysqli_select_db($this->dbCon, getenv('DB_NAME'));
         } catch (Exception $ex) {
             throw new Exception( 'db Open Error' );
         }
