@@ -72,11 +72,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header id="header" class="header-desktop">
         <div class="header-gnb">
             <div class="header-gnb-inner">
-                <h1>
-                    <a href="/">
-                        <img src="/images/common/logo-purigen-main-white.svg" alt="Purigen Biosystems, Inc.">
-                    </a>
-                </h1>
 
                 <div class="header-gnb-list" id="header-gnb">
                     <ul>
@@ -114,6 +109,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </dl>
                             </div>
                         </li>
+
+                        <div id="header_logo">
+                            <h1>
+                                <a href="/">
+                                    <img src="/images/common/logo-purigen-main-white.svg" alt="Purigen Biosystems, Inc.">
+                                </a>
+                            </h1>
+                        </div>
 
                         <li>
                             RESOURCES <i class="fas fa-sort-down"></i>

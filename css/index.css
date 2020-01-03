@@ -4524,3 +4524,6 @@ a:hover {
 .btn_pop_close:before{content:"";position:absolute;left:50%;top:50%;width:1px;height:20px;margin-top:-9px;background:#fff}
 .btn_pop_close:after{-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);transform: rotate(45deg)}
 .btn_pop_close:before{-ms-transform: rotate(-45deg);-webkit-transform: rotate(45deg);transform: rotate(-45deg)}
+#header_logo {height: 45px; padding-right: 47px;}
+#header_logo h1 {position: static; margin-top: -35px;}
+.header-gnb-inner {padding-left: 0;}
