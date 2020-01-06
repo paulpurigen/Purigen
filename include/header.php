@@ -74,7 +74,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="header-gnb-inner">
 
                 <div class="header-gnb-list" id="header-gnb">
-                    <ul>
+                    <ul id="left_nav">
                         <li>
                             PRODUCTS <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
@@ -109,15 +109,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </dl>
                             </div>
                         </li>
+                    </ul>
 
-                        <div id="header_logo">
-                            <h1>
-                                <a href="/">
-                                    <img src="/images/common/logo-purigen-main-white.svg" alt="Purigen Biosystems, Inc.">
-                                </a>
-                            </h1>
-                        </div>
-
+                    <div id="header_logo">
+                        <h1>
+                            <a href="/">
+                                <img src="/images/common/logo-purigen-main-white.svg" alt="Purigen Biosystems, Inc.">
+                            </a>
+                        </h1>
+                    </div>
+                    <ul id="right_nav">
                         <li>
                             RESOURCES <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
@@ -149,8 +150,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </dl>
                             </div>
                         </li>
-
                     </ul>
+
                 </div>
 
                 <div class="header-util">
