@@ -1006,6 +1006,7 @@ strong {
   transition: all 0.3s ease;
   position: absolute;
   top: 78px;
+  height: 170px;
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.95);
@@ -1015,6 +1016,7 @@ strong {
   max-width: 1280px;
   margin: 0 auto;
   height: 170px;
+  display: none;
   background: url('../images/icon-purigen-light-gray.svg') 0 50% no-repeat;
   background-size: 100px 100px;
 }
@@ -4533,6 +4535,5 @@ a:hover {
 #left_nav{flex:1;display:flex;justify-content:flex-start;align-items:center}
 #header_logo{flex:1;display:flex;justify-content:center;align-items:center;max-width:310px;padding-right:20px}
 #right_nav{flex:1;display:flex;justify-content:flex-end;align-items:center}
-.header-gnb-sub:not(.active)>div {background:unset;}
-div#header-gnb-sub.left_nav>div{background-position: left;}
-div#header-gnb-sub.left_nav>div{background-position: right;}
+div#header-gnb-sub.left_nav>div{background-position: right; display: block;}
+div#header-gnb-sub.right_nav>div{background-position: left; display: block;}
