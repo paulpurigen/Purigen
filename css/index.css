@@ -819,7 +819,7 @@ strong {
   opacity: 0.94;
   position: relative;
   z-index: 10;
-  background: -webkit-linear-gradient(top,#01263d,#000);
+  background: -webkit-linear-gradient(top,#001726,#000);
     background-image: -webkit-linear-gradient(top, rgb(1, 38, 61), rgb(0, 19, 30));
     background-position-x: initial;
     background-position-y: initial;
@@ -993,7 +993,7 @@ strong {
 }
 .header-gnb-list .header-gnb-list-sub dd a {
   font-family: 'Forza-Book';
-  font-size: 14px;
+  font-size: 15px;
   color: #32383e;
   line-height: 1.8;
   transition: all ease 0.3s;
@@ -1757,7 +1757,7 @@ strong {
 }
 .main-event li a {
   display: block;
-  height: 345px;
+  height: 350px;
   padding: 33px 15px;
   text-align: center;
   color: #7d7f82;
@@ -2305,7 +2305,7 @@ li.board-of-directors-li {
 }
 .upcoming-event li {
   position: relative;
-  height: 325px;
+  height: 365px;
 }
 .upcoming-event li:nth-child(odd) {
   background-color: #f2f2f2;
