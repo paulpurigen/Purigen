@@ -758,7 +758,7 @@ strong {
   font-size: 18px;
   font-family: 'Forza-Medium';
   color: #101820;
-  border: 1px solid #d3d3d3;
+  border: 1px solid #ccc;
 }
 .form dd textarea {
   width: 100%;
@@ -845,11 +845,12 @@ strong {
 }
 .header-gnb-inner h1 a {
   display: block;
-  width: 270px;
+  width: 277px;
 }
 .header-gnb-inner h1 img {
-  width: 270px;
+  width: 277px;
   height: auto;
+  padding: 1px 5px 0 0;
 }
 .header-gnb-inner a {
   text-decoration: none;
@@ -992,7 +993,7 @@ strong {
 }
 .header-gnb-list .header-gnb-list-sub dd a {
   font-family: 'Forza-Book';
-  font-size: 15px;
+  font-size: 14px;
   color: #32383e;
   line-height: 1.8;
   transition: all ease 0.3s;
@@ -1756,7 +1757,7 @@ strong {
 }
 .main-event li a {
   display: block;
-  height: 330px;
+  height: 345px;
   padding: 33px 15px;
   text-align: center;
   color: #7d7f82;
@@ -2071,7 +2072,7 @@ li.board-of-directors-li {
   z-index: 1;
   top: 20%;
   right: 0;
-  bottom: 125%;
+  /*bottom: 125%;*/
   left: 0;
   margin: 0 auto;
   height: max-content;
@@ -3834,15 +3835,18 @@ th.column-2 {
     display: none;
   }
   .main-visual-slide li:nth-child(1) {
-    background-image: url('../images/mobile/thmb-main-visual-01a.jpg');
+    background-image: url('../images/mobile/m-img-purigen-main-hero-pop-v01.jpg');
   }
   .main-visual-slide li:nth-child(2) {
-    background-image: url('../images/mobile/thmb-main-visual-02a.jpg');
+    background-image: url('../images/mobile/thmb-main-visual-01a.jpg');
   }
   .main-visual-slide li:nth-child(3) {
-    background-image: url('../images/mobile/thmb-main-visual-03a.jpg');
+    background-image: url('../images/mobile/thmb-main-visual-02a.jpg');
   }
   .main-visual-slide li:nth-child(4) {
+    background-image: url('../images/mobile/thmb-main-visual-03a.jpg');
+  }
+  .main-visual-slide li:nth-child(5) {
     background-image: url('../images/mobile/thmb-main-visual-04b.jpg');
   }
   .main-visual-page {
