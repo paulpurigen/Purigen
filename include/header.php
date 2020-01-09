@@ -98,7 +98,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="header-gnb-list-sub">
                                 <dl>
                                     <dt>Purigen Instrument</dt>
-                                    <dd><a href="/products/ionic-system.php">Ionic&trade; Purification System</a></dd>
+                                    <dd class="blue_nav_icon"><a href="/products/ionic-system.php">Ionic&trade; Purification System</a></dd>
 
                                 </dl>
                                 <dl>
@@ -112,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             TECHNOLOGY <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
                                 <dl>
-                                    <dd><a href="/technology/isotachophoresis.php">Purigen Isotachophoresis</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/technology/isotachophoresis.php">Purigen Isotachophoresis</a></dd>
                                 </dl>
 
                             </div>
@@ -122,8 +122,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             NEWS &amp; EVENTS <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
                                 <dl>
-                                    <dd><a href="/news-events/news/list.php">News and Press</a></dd>
-                                    <dd><a href="/news-events/events/list.php">Events</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/news-events/news/list.php">News and Press</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/news-events/events/list.php">Events</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -141,8 +141,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             RESOURCES <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
                                 <dl>
-                                    <dd><a href="/resources/literature.php">Literature</a></dd>
-                                    <dd><a href="/resources/videos.php">Videos</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/resources/literature.php">Literature</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/resources/videos.php">Videos</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -151,8 +151,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             SUPPORT <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
                                 <dl>
-                                    <dd><a href="/support/documentation.php">Documentation</a></dd>
-                                    <dd><a href="/support/request-info.php">Request Information</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/support/documentation.php">Documentation</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/support/request-info.php">Request Information</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -161,10 +161,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             COMPANY <i class="fas fa-sort-down"></i>
                             <div class="header-gnb-list-sub">
                                 <dl>
-                                    <dd><a href="/company/about-us.php">About Us</a></dd>
-                                    <dd><a href="/company/careers.php">Careers</a></dd>
-                                    <dd><a href="/company/location.php">Location and Contact</a></dd>
-                                    <dd><a href="/company/privacy.php">Privacy and Cookies</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/company/about-us.php">About Us</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/company/careers.php">Careers</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/company/location.php">Location and Contact</a></dd>
+                                    <dd class="blue_nav_icon"><a  href="/company/privacy.php">Privacy and Cookies</a></dd>
                                 </dl>
                             </div>
                         </li>

@@ -4541,3 +4541,9 @@ a:hover {
 #right_nav{flex:1;display:flex;justify-content:flex-end;align-items:center}
 div#header-gnb-sub.left_nav>div{background-position: right; display: block;}
 div#header-gnb-sub.right_nav>div{background-position: left; display: block;}
+.blue_nav_icon {
+  padding-left: 28px;
+  background: 0 50% no-repeat;
+  background-size: 15px auto;
+  background-image: url(../images/icon-leaf-blue.svg);
+}
