@@ -48,34 +48,34 @@ $os = 'Linux';
 $local = 'http://localhost/publizieren/';
 
 //Web URL of Sphider-plus installation (root)
-$install_url = 'https://purigenbiosystems.com/sphider';
+$install_url = 'https://purigenbio.com/sphider';
 
 //Installation root folder of Sphider-plus (absolute on computer)
-$inst_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider';
+$inst_dir = '/home/customer/www/purigenbio.com/public_html/sphider';
 
 //Installation root folder of Sphider-plus (folder in web server)
-$install_dir = '/home/u1-9qfg5jh4646x/www/purigenbiosystems.com/public_html';
+$install_dir = '/home/u1-9qfg5jh4646x/www/purigenbio.com/public_html';
 
 //Web URL of Sphider-plus admin backend folder
-$admin_url = 'https://purigenbiosystems.com/sphider/admin/admin.php';
+$admin_url = 'https://purigenbio.com/sphider/admin/admin.php';
 
 //Admin folder of Sphider-plus installation 
-$admin_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/admin';
+$admin_dir = '/home/customer/www/purigenbio.com/public_html/sphider/admin';
 
 //Folder for thumbnails during index procedure 
-$thumb_folder = '/home/customer/www/purigenbiosystems.com/public_html/sphider/admin/thumbs';
+$thumb_folder = '/home/customer/www/purigenbio.com/public_html/sphider/admin/thumbs';
 
 //Folder for thumbnails during search procedure 
-$thumb_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/include/thumbs';
+$thumb_dir = '/home/customer/www/purigenbio.com/public_html/sphider/include/thumbs';
 
 //Folder for XML results 
-$xml_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/xml';
+$xml_dir = '/home/customer/www/purigenbio.com/public_html/sphider/xml';
 
 //Delimiter to separate real tile and transliterated part of media titles 
 $delim = '_-_-';
 
 //Folder for URL import / export 
-$url_path = '/home/customer/www/purigenbiosystems.com/public_html/sphider/admin/urls/';
+$url_path = '/home/customer/www/purigenbio.com/public_html/sphider/admin/urls/';
 
 //latest implemented field in db 
 $latest_field = 'webshot';
@@ -186,16 +186,16 @@ $login_delay = 1;
 $admin_life = 9960;
 
 // Template URL (new version for HTML5)
-$template_url = 'https://purigenbiosystems.com/sphider/templates';
+$template_url = 'https://purigenbio.com/sphider/templates';
 
 // Template directory(for old version relative addressing ../)
 $templ_dir = 'templates';
 
 // Template directory (old version, same as the new Template URL)
-$template_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/templates';
+$template_dir = '/home/customer/www/purigenbio.com/public_html/sphider/templates';
 
 // Temporary directory, this should be readable and writable
-$tmp_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/admin/tmp';
+$tmp_dir = '/home/customer/www/purigenbio.com/public_html/sphider/admin/tmp';
 
 // Name of search script
 $search_script = 'search.php';
@@ -230,7 +230,7 @@ $click_wait = 60;
 $keep_log = 0;
 
 //Log directory, this should be readable and writable
-$log_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/admin/log';
+$log_dir = '/home/customer/www/purigenbio.com/public_html/sphider/admin/log';
 
 // Log format
 $log_format = 'html';
@@ -247,7 +247,7 @@ Spider settings
 $case_sensitive   = 0;
 
 // Sitemap directory, this should be readable and writable 
-$smap_dir = '/home/customer/www/purigenbiosystems.com/public_html/sphider/admin/sitemaps';
+$smap_dir = '/home/customer/www/purigenbio.com/public_html/sphider/admin/sitemaps';
 
 // Count of threads for indexing 
 $multi_indexer = '1';
