@@ -816,10 +816,10 @@ strong {
   width: 100%;
 }
 .header-gnb {
-  opacity: 0.94;
+  opacity: 0.95;
   position: relative;
   z-index: 10;
-  background: -webkit-linear-gradient(top,#001726,#000);
+  background: -webkit-linear-gradient(top,#11191f,#000);
     background-image: -webkit-linear-gradient(top, rgb(1, 38, 61), rgb(0, 19, 30));
     background-position-x: initial;
     background-position-y: initial;
@@ -993,7 +993,7 @@ strong {
 }
 .header-gnb-list .header-gnb-list-sub dd a {
   font-family: 'Forza-Book';
-  font-size: 15px;
+  font-size: 14px;
   color: #32383e;
   line-height: 1.8;
   transition: all ease 0.3s;
@@ -1597,7 +1597,7 @@ strong {
   opacity: 0.5;
   width: 30px;
   height: 16px;
-  margin-left: 15px;
+  margin-left: 10px;
   background-image: url('../images/icon-leaf-white.svg');
   background-size: cover;
   overflow: hidden;
@@ -3835,7 +3835,7 @@ th.column-2 {
     display: none;
   }
   .main-visual-slide li:nth-child(1) {
-    background-image: url('../images/mobile/m-img-purigen-main-hero-pop-v01.jpg');
+    background-image: url('../images/mobile/m-img-purigen-main-hero-pop-v02.jpg');
   }
   .main-visual-slide li:nth-child(2) {
     background-image: url('../images/mobile/thmb-main-visual-01a.jpg');
