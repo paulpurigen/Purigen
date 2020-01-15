@@ -120,13 +120,30 @@ $dbhelper->dbClose();
                 }
             };
 
+            function next_slide() {
+                prev_next_click("next-click");
+            }
+
+            function isMobile(){
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    return true;
+                }
+            }
+
             $(function() {
+                $( document ).ready(function() {
+                    if (isMobile()) {
+                        console.log(isMobile());
+                        let intervalID = window.setInterval(next_slide, 5000);
+                    }
+                });
+
                 $('video').on('ended',function(){
                     if ($('.active').next().length == 2) {
                         $('.active').next().click();
                     } else {
                         $('.main-visual-page a')[0].click();
-                    }					      
+                    }
                 });
 
                 $('.main-visual-page a').click(function(e) {
