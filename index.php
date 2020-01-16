@@ -1,6 +1,6 @@
-<head>
+<!DOCTYPE html><head>
 
-<title>A Revolution in DNA Extraction | Purigen Biosystems</title>
+<title>DNA Extraction - Pure and Simple | Purigen Biosystems</title>
 
 <meta name="description" content="Purigen Biosystems is revolutionizing DNA extraction and nucleic acid purification for life science research with its novel isotachophoresis technology." />
 
@@ -28,7 +28,7 @@ $today = date("Ymd");
 
 $dbhelper->dbOpen();
 
-$sql = "select pkid, year, month, day, maintitle, subtitle from media where status = 1 order by year desc, month desc, day desc limit 4 ";
+$sql = "select pkid, year, month, day, maintitle, subtitle from media where status = 1 order by year desc, month desc, day desc limit 5 ";
 
 $NewsList = $dbhelper->RunSQLReturnRows($sql);
 
@@ -43,12 +43,24 @@ $dbhelper->dbClose();
 
 </head>
 
+
 <div id="container">
 
     <div class="main-visual" id="main-visual">
         <ul class="main-visual-slide" id="main-visual-slide">
             <li class="active">
                 <video id="main-video1" playsinline autoplay muted="muted"><!--  loop> -->
+                    <source src="/media/vid/vid-purigen-pop-hero-01.mp4" type="video/mp4">
+                </video>
+                <article>
+                    <h3>Proof-of-Performance (POP) Study</h3>
+                    <h2>SEE THE PURIGEN ADVANTAGE</h2>
+                    <p>We invite you try Purigen and see the difference. Our POP study is available to any researcher wanting to compare their results to the Purigen Ionic System.</p>
+                    <a href="/support/request-info"><i class="fas fa-chevron-circle-right fa-2x"></i> &nbsp; REQUEST INFO</a>
+                </article>
+            </li>
+            <li>
+                <video id="main-video2" playsinline autoplay muted="muted"><!--  loop> -->
                     <source src="/videos/vid-purigen-ionic-dark-bg-test-01a.mp4" type="video/mp4">
                 </video>
                 <article>
@@ -59,7 +71,7 @@ $dbhelper->dbClose();
                 </article>
             </li>
             <li>
-                <video id="main-video2" playsinline muted="muted"><!--  loop> -->
+                <video id="main-video3" playsinline muted="muted"><!--  loop> -->
                     <source src="/videos/vid-purigen-purification-02-1080-18sec.mp4" type="video/mp4">
                 </video>
                 <article>
@@ -70,24 +82,24 @@ $dbhelper->dbClose();
                 </article>
             </li>
             <li>
-                <video id="main-video3" playsinline muted="muted"><!--  loop> -->
+                <video id="main-video4" playsinline muted="muted"><!--  loop> -->
                     <source src="/videos/vid-purigen-web-hero-05f-1080.mp4" type="video/mp4">
                 </video>
                 <article>
                     <h3>Visit our BOOTH 106 to see the</h3>
-                    <h2>Ionic<span style="font-family: 'Forza-Light'; font-size: 28px;">&trade;</span> Purification System at ABRF</h2>
+                    <h2>Ionic<span style="font-family: 'Forza-Light'; font-size: 28px;">&trade;</span> Purification System at ABRF 2020</h2>
                     <p>Feb 29 – Mar 3 &nbsp; | &nbsp; Palm Springs, CA</p>
                     <a href="/news-events/events/list.php"><i class="fas fa-chevron-circle-right fa-2x"></i> &nbsp; LEARN MORE</a>
                 </article>
             </li>
             <li>
-                <video id="main-video4" playsinline muted="muted"><!--  loop> -->
+                <video id="main-video5" playsinline muted="muted"><!--  loop> -->
                     <source src="/videos/vid-purigen-chips-hero-03h.mp4" type="video/mp4">
                 </video>
                 <article>
-                    <h3>Purigen Kits</h3>
+                    <h3>Purigen Ionic Kits</h3>
                     <h2>Simplify Your Purification Workflows</h2>
-                    <p>Purigen protocols, fluidics chips and reagents maximize nucleic acid yield and quality with fewer manual steps.</p>
+                    <p>Purigen protocols, fluidics chips, and reagents maximize nucleic acid yield and quality with fewer manual steps.</p>
                     <a href="/products/ionic-kits.php"><i class="fas fa-chevron-circle-right fa-2x"></i> &nbsp; LEARN MORE</a>
                 </article>
             </li>
@@ -98,7 +110,8 @@ $dbhelper->dbClose();
                 <a href="#" class="active">slide 1</a>
                 <a href="#">slide 2</a>
                 <a href="#">slide 3</a>
-                <a href="#">slide 4</a>					
+                <a href="#">slide 4</a>	
+                <a href="#">slide 5</a>	
             </div>
             <i id="next-click" onClick="prev_next_click(this.id)" class="fal fa-3x fa-angle-right"></i>
         </div>
@@ -182,7 +195,7 @@ $dbhelper->dbClose();
         <div class="main-movie-inner">
             <h2>See the Purigen Technology in Action</h2>
             <p>
-                The application of ITP to purify and quantify nucleic acids from complex biological samples was pioneered by Purigen co-founder and Stanford University Professor Juan G. Santiago. The Ionic Purification System is compatible with a range of samples including cells and FFPE.
+                The application of ITP to purify and quantify nucleic acids from complex biological samples was pioneered by <a href="https://profiles.stanford.edu/juan-santiago" target="_blank" style="color:#fff; font-family:'Roboto-Medium'">Purigen co-founder and Stanford University Professor, Juan G. Santiago</a>. The Ionic Purification System is compatible with a range of samples including cells and FFPE.
             </p>
             <div class="main-movie-section">
 
