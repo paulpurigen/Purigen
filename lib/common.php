@@ -12,6 +12,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT']);
 $dotenv->load();
 
+include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/Constants.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/dbHelper.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/RowHelper.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/PageHelper.php');

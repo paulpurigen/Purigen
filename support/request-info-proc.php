@@ -1,6 +1,5 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
 $webhelper = new WebHelper();
 $dbhelper = new dbHelper();
 
@@ -13,6 +12,7 @@ $organization = $webhelper->RequestFilter("organization", 100, false);
 $job_title = $webhelper->RequestFilter("job_title", 100, false);
 $country = $webhelper->RequestFilter("country", 50, false);
 $state = $webhelper->RequestFilter("state", 50, false);
+$industry_type = $webhelper->RequestFilter("industry_type", 50, false);
 $main_application = $webhelper->RequestFilter("main_application", 100, false);
 $purchase_timeline = $webhelper->RequestFilter("purchase_timeline", 100, false);
 $isreceive = $webhelper->RequestFilter("isreceive", 0, false);
@@ -27,14 +27,15 @@ if($webhelper->isNull($organization)) $webhelper->AlertMessage("Error. Please tr
 if($webhelper->isNull($job_title)) $webhelper->AlertMessage("Error. Please try again.");
 if($webhelper->isNull($country)) $webhelper->AlertMessage("Error. Please try again.");
 if($webhelper->isNull($state)) $webhelper->AlertMessage("Error. Please try again.");
+if($webhelper->isNull($industry_type)) $webhelper->AlertMessage("Error. Please try again.");
 if($webhelper->isNull($main_application)) $webhelper->AlertMessage("Error. Please try again.");
 if($webhelper->isNull($purchase_timeline)) $webhelper->AlertMessage("Error. Please try again.");
 if($webhelper->isNull($isreceive)) $isreceive = 0;
 if($webhelper->isNull($note)) $webhelper->AlertMessage("Error. Please try again.");
 
 $dbhelper->dbOpen();
-$sql = "insert into request_information(firstname, lastname, email, phone, organization, job_title, country, state, main_application, main_product, purchase_timeline, isreceive, note)
-        values ('$firstname', '$lastname', '$email', '$phone', '$organization', '$job_title', '$country', '$state', '$main_application', '$main_product', '$purchase_timeline', '$isreceive', '$note')";
+$sql = "insert into request_information(firstname, lastname, email, phone, organization, job_title, country, state, main_application, main_product, purchase_timeline, isreceive, note, industry_type)
+        values ('$firstname', '$lastname', '$email', '$phone', '$organization', '$job_title', '$country', '$state', '$main_application', '$main_product', '$purchase_timeline', '$isreceive', '$note', '$industry_type')";
 $inserpkid =$dbhelper->RunSQLReturnID($sql);
 $dbhelper->dbClose();
 
@@ -47,6 +48,7 @@ $content = "First Name: " . $firstname . "\n" .
            "Job Title: " . $job_title . "\n" .
            "Country: " . $country . "\n" .
            "State / Province: " . $state . "\n" .
+           "industry_type: " . Constants::INDUSTRY_TYPES[$industry_type] . "\n" .
            "Main Application: " . $main_application . "\n" .
            "Purchase Timeline: " . $purchase_timeline . "\n" .
            "Request or Question: " . $note . "\n";

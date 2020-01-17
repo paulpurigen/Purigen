@@ -23,7 +23,7 @@ if($webhelper->isNull($order)) $order = 0;
 $Parameter = "?page=$page&searchKey=$searchKey&order=$order";
 
 $dbhelper->dbOpen();
-$sql = "select pkid, firstname, lastname, email, phone, organization, job_title, country, state, main_application, main_product, purchase_timeline, isreceive, note from request_information where pkid = $pkid ";
+$sql = "select pkid, firstname, lastname, email, phone, organization, job_title, country, state, main_application, main_product, purchase_timeline, isreceive, note, industry_type from request_information where pkid = $pkid ";
 $ViewData = $dbhelper->RunSQLReturnOneRow($sql);
 $dbhelper->dbClose();
 
@@ -191,7 +191,17 @@ if($webhelper->isNull($ViewData))
                         <td><input type="text" name="state" id="state" value="<?=$ViewData["state"]?>" maxlength="50" style="width:350px"></td>
                     </tr>
                     <tr>
-                        <th>main application</th>
+                        <th>industry type</th>
+                        <td>
+                            <select type="text" name="industry_type" id="industry_type" value="<?=$ViewData["industry_type"]?>" maxlength="100" style="width:350px">
+                                <?php foreach (Constants::INDUSTRY_TYPES as $key=>$industry_type) {?>
+                                    <option value="<?= $key ?>" <?php echo (Constants::INDUSTRY_TYPES[$ViewData["industry_type"]] == $industry_type) ? 'selected' : '' ?>><?= $industry_type ?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>main research area</th>
                         <td><input type="text" name="main_application" id="main_application" value="<?=$ViewData["main_application"]?>" maxlength="100" style="width:350px"></td>
                     </tr>
                     <tr>
