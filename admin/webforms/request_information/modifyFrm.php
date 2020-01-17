@@ -103,12 +103,18 @@ if($webhelper->isNull($ViewData))
                 $("#main_application").css("border", "1px solid #ff0000");
                 isOk = false;
             }
-            
-            if(f.main_product.value == "")
+
+            if(f.industry_type.value == "")
             {
-                $("#main_product").css("border", "1px solid #ff0000");
+                $("#industry_type").css("border", "1px solid #ff0000");
                 isOk = false;
             }
+            
+            // if(f.main_product.value == "")
+            // {
+            //     $("#main_product").css("border", "1px solid #ff0000");
+            //     isOk = false;
+            // }
             
             if(f.purchase_timeline.value == "")
             {

@@ -84,6 +84,13 @@ $industry_types = Constants::INDUSTRY_TYPES;
             $("#state").css("border", "1px solid #ff0000");
             isOk = false;
         }
+        if(f.industry_type.value == "")
+        {
+            $(".select2-selection.select2-selection--single").attr("style", "border: 1px solid #ff0000 !important");
+            isOk = false;
+        } else{
+            $(".select2-selection.select2-selection--single").removeAttr("style");
+        }
         if(f.main_application.value == "")
         {
             $("#main_application").css("border", "1px solid #ff0000");

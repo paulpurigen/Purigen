@@ -54,7 +54,7 @@ $content = "First Name: " . $firstname . "\n" .
            "Request or Question: " . $note . "\n";
 $headers = "From: Request Information from Web\r\n";
 
-$result=mail("paul@purigenbio.com", $subject, $content, $headers);
+$result=mail("andriy.miga@gmail.com", $subject, $content, $headers);
 
 $encpkid = $webhelper->AESEncrypt256($inserpkid);
 $webhelper->AlertMessageAndGo("", "/support/thank-you-request.php?pkid=$encpkid");

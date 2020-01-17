@@ -39,7 +39,7 @@ if($webhelper->isNull($job_title)) $webhelper->AlertMessage("Error. Please try a
 if($webhelper->isNull($country)) $webhelper->AlertMessage("Error. Please try again.7");
 if($webhelper->isNull($state)) $webhelper->AlertMessage("Error. Please try again.8");
 if($webhelper->isNull($main_application)) $webhelper->AlertMessage("Error. Please try again.9");
-if($webhelper->isNull($main_product)) $webhelper->AlertMessage("Error. Please try again.10");
+//if($webhelper->isNull($main_product)) $webhelper->AlertMessage("Error. Please try again.10");
 if($webhelper->isNull($industry_type)) $webhelper->AlertMessage("Error. Please try again. Industry type");
 if($webhelper->isNull($purchase_timeline)) $webhelper->AlertMessage("Error. Please try again.11");
 if($webhelper->isNull($isreceive)) $isreceive = 0;
