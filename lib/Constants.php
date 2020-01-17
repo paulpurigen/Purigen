@@ -3,6 +3,7 @@
 class Constants
 {
     const INDUSTRY_TYPES = [
+        null => '',
         1 => 'Biotech Organization',
         2 => 'University',
         3 => 'Government Research Organization',
