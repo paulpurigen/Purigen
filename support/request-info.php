@@ -1,5 +1,9 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/Constants.php');
+$industry_types = Constants::INDUSTRY_TYPES;
+?>
 <!DOCTYPE html>
-<head>    
+<head>
 <title>Request Information | Purigen Biosystems</title>
 <meta name="description" content="Contact us to request information on Purigen Ionic Purification System and Kits." />
 <link rel="canonical" href="https://www.purigenbio.com/support/request-info" />
@@ -14,8 +18,15 @@
 <?php include_once($_SERVER['DOCUMENT_ROOT'] . "/include/header.php") ?>
 
 </head>
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('#industry_type').select2({
+            placeholder: 'Select an option',
+            dropdownAutoWidth: true,
+        });
+    });
 
     function checkFrm()
 
@@ -72,6 +83,13 @@
         {
             $("#state").css("border", "1px solid #ff0000");
             isOk = false;
+        }
+        if(f.industry_type.value == "")
+        {
+            $(".select2-selection.select2-selection--single").attr("style", "border: 1px solid #ff0000 !important");
+            isOk = false;
+        } else{
+            $(".select2-selection.select2-selection--single").removeAttr("style");
         }
         if(f.main_application.value == "")
         {
@@ -150,7 +168,20 @@
                         <dd><input type="text" name="job_title" id="job_title" maxlength="100"/></dd>
                     </dl>
                 </div>
-
+                <div class="form-row">
+                    <dl>
+                        <dt><label for="">INDUSTRY TYPE*</label></dt>
+                        <dd><select class="dropdown" name="industry_type" id="industry_type">
+                                <?php foreach ($industry_types as $key => $industry_type) { ?>
+                                    <option value="<?= $key ?>"><?= $industry_type ?></option>
+                                <?php } ?>
+                            </select></dd>
+                    </dl>
+                    <dl>
+                        <dt><label for="">MAIN RESEARCH AREA*</label></dt>
+                        <dd><input type="text" name="main_application" id="main_application" maxlength="100"/></dd>
+                    </dl>
+                </div>
                 <div class="form-row">
                     <dl>
                         <dt><label for="">COUNTRY*</label></dt>
@@ -163,20 +194,11 @@
                 </div>
                 <div class="form-row">
                     <dl>
-                        <dt><label for="">MAIN APPLICATION*</label></dt>
-                        <dd><input type="text" name="main_application" id="main_application" maxlength="100"/></dd>
-                    </dl>
-                    <!--<dl>
-                            <dt><label for="">MAIN PRODUCT INTEREST*</label></dt>
-                            <dd><input type="text"/></dd>
-                    </dl>-->
-                </div>
-                <div class="form-row">
-                    <dl>
                         <dt><label for="">PURCHASE TIMELINE*</label></dt>
                         <dd><input type="text" name="purchase_timeline" id="purchase_timeline" maxlength="100"/></dd>
                     </dl>
-                    <dl></dl>
+                    <dl>
+                    </dl>
                 </div>
                 <div class="form-agree">
                     <div class="checkbox-set"><input type="checkbox" name="isreceive" value="1" id="category-brochures"/> <label for="category-brochures">Yes, I'd like to receive the latest news about Purigen.</label></div>
@@ -212,5 +234,4 @@
         </div>
     </div>
 </div>
-
 <?php include_once($_SERVER['DOCUMENT_ROOT'] . "/include/footer.php") ?>
