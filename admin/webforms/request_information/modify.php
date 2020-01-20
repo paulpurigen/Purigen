@@ -24,6 +24,7 @@ $country = $webhelper->RequestFilter("country", 50, false);
 $state = $webhelper->RequestFilter("state", 50, false);
 $main_application = $webhelper->RequestFilter("main_application", 100, false);
 $main_product = $webhelper->RequestFilter("main_product", 100, false);
+$industry_type = $webhelper->RequestFilter("industry_type", 100, false);
 $purchase_timeline = $webhelper->RequestFilter("purchase_timeline", 100, false);
 $isreceive = $webhelper->RequestFilter("isreceive", 0, false);
 $note = $webhelper->RequestFilter("note", -1, true);
@@ -38,7 +39,8 @@ if($webhelper->isNull($job_title)) $webhelper->AlertMessage("Error. Please try a
 if($webhelper->isNull($country)) $webhelper->AlertMessage("Error. Please try again.7");
 if($webhelper->isNull($state)) $webhelper->AlertMessage("Error. Please try again.8");
 if($webhelper->isNull($main_application)) $webhelper->AlertMessage("Error. Please try again.9");
-if($webhelper->isNull($main_product)) $webhelper->AlertMessage("Error. Please try again.10");
+//if($webhelper->isNull($main_product)) $webhelper->AlertMessage("Error. Please try again.10");
+if($webhelper->isNull($industry_type)) $webhelper->AlertMessage("Error. Please try again. Industry type");
 if($webhelper->isNull($purchase_timeline)) $webhelper->AlertMessage("Error. Please try again.11");
 if($webhelper->isNull($isreceive)) $isreceive = 0;
 if($webhelper->isNull($note)) $webhelper->AlertMessage("Error. Please try again.12");
@@ -63,6 +65,7 @@ $sql = "update request_information
             state = '$state', 
                 
             main_application = '$main_application', 
+            industry_type = '$industry_type',
             main_product = '$main_product',
             purchase_timeline = '$purchase_timeline',
             isreceive = '$isreceive',
