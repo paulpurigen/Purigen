@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <head>    
-
 <title>Request Information | Purigen Biosystems</title>
 <meta name="description" content="Contact us to request information on Purigen Ionic Purification System and Kits." />
 <link rel="canonical" href="https://www.purigenbio.com/support/request-info" />
