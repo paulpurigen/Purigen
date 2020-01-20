@@ -2,8 +2,8 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/Constants.php');
 $industry_types = Constants::INDUSTRY_TYPES;
 ?>
+<!DOCTYPE html>
 <head>
-
 <title>Request Information | Purigen Biosystems</title>
 <meta name="description" content="Contact us to request information on Purigen Ionic Purification System and Kits." />
 <link rel="canonical" href="https://www.purigenbio.com/support/request-info" />
