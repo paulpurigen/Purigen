@@ -48,7 +48,7 @@ $content = "First Name: " . $firstname . "\n" .
            "Job Title: " . $job_title . "\n" .
            "Country: " . $country . "\n" .
            "State / Province: " . $state . "\n" .
-           "industry_type: " . Constants::INDUSTRY_TYPES[$industry_type] . "\n" .
+           "Industry Type: " . Constants::INDUSTRY_TYPES[$industry_type] . "\n" .
            "Main Application: " . $main_application . "\n" .
            "Purchase Timeline: " . $purchase_timeline . "\n" .
            "Request or Question: " . $note . "\n";
