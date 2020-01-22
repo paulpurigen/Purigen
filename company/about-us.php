@@ -23,7 +23,7 @@
     <div class="contents-visual contents-visual-about-us">
         <article>
             <h2>Disrupting a 20+ year old DNA extraction method</h2>
-            <h3 style="color:#fff">A Revolution in Nucleic Acid Purification</h3>
+            <h3 style="color:#fff">Nucleic Acid Purification - Pure and Simple</h3>
                 <!--<a href="#">View Open Positions</a>-->
         </article>		
     </div>
