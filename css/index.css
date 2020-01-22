@@ -4552,16 +4552,8 @@ div#header-gnb-sub.right_nav>div{background-position: left; display: block;}
   background-image: url(../images/icon-leaf-blue.svg);
 }
 span.select2.select2-container.select2-container--default {width: 100% !important;}
-.select2-selection--single {
-  width: 100%;
-  height: 51px !important;
-  padding: 0 10px;
-  font-size: 18px;
-  font-family: 'Forza-Medium';
-  color: #101820;
-  border: 1px solid #ccc !important;
-  border-radius: 0 !important;
-}
+.header-search-field input {width: 100%;height: 100%;padding: 10px 15px 11px;color: #101820;font-family: 'Forza-Book';font-size: 17px;background-color: #f1f1f1;}
+.select2-selection--single {width: 100%; height: 51px !important; padding: 0 10px; font-size: 18px; font-family: 'Forza-Medium'; color: #101820; border: 1px solid #ccc !important; border-radius: 0 !important;}
 #select2-industry_type-container{line-height: 51px;}
 .selection:focus,span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus:focus,span.select2-selection.select2-selection--single {outline-color: transparent;}
 .select2-dropdown{z-index: 5 !important;}
